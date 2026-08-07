@@ -37,7 +37,7 @@ with patient_map as (
   select id, name from payment_methods
 )
 insert into sessions (patient_id, payment_method_id, session_date, session_time, value_cents, status)
-select pm.id, mm.id, v.session_date, v.session_time::time, v.value_cents, v.status
+select pm.id, mm.id, v.session_date::date, v.session_time::time, v.value_cents, v.status
 from (values
   ('Julia', '2026-01-05', '11:00', 20000, 'pago', 'Particular'),
   ('Letycia', '2026-01-05', '13:30', 20000, 'pago', 'Particular'),
