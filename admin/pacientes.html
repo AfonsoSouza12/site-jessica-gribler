@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pacientes | Atendimentos</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="app-shell">
+  <nav class="app-nav">
+    <div class="logo">Atendimentos</div>
+    <a href="dashboard.html" data-page="dashboard.html">Dashboard</a>
+    <a href="pacientes.html" data-page="pacientes.html">Pacientes</a>
+    <a href="atendimentos.html" data-page="atendimentos.html">Atendimentos</a>
+    <a href="receber.html" data-page="receber.html">A Receber</a>
+    <a href="despesas.html" data-page="despesas.html">Despesas</a>
+    <div class="nav-logout">
+      <a href="#" id="logoutBtn">Sair</a>
+    </div>
+  </nav>
+
+  <main class="app-main">
+    <div class="page-header">
+      <h1>Pacientes</h1>
+    </div>
+
+    <div class="card">
+      <h2 class="section-title-small" id="formTitle">Cadastrar paciente</h2>
+      <div id="formMessage" class="form-message"></div>
+      <form id="patientForm">
+        <input type="hidden" id="patientId">
+        <div class="form-grid">
+          <div>
+            <label for="name">Nome *</label>
+            <input type="text" id="name" required>
+          </div>
+          <div>
+            <label for="phone">Telefone</label>
+            <input type="text" id="phone" placeholder="(00) 00000-0000">
+          </div>
+          <div>
+            <label for="notes">Observações</label>
+            <input type="text" id="notes">
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submitBtn">Cadastrar</button>
+          <button type="button" class="btn btn-secondary" id="cancelEditBtn" style="display:none;">Cancelar edição</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="filters-row">
+      <input type="text" id="searchInput" placeholder="Buscar por nome...">
+      <label style="display:flex;align-items:center;gap:6px;width:auto;">
+        <input type="checkbox" id="showArchived" style="width:auto;"> Mostrar arquivados
+      </label>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Observações</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="patientsTbody">
+          <tr><td colspan="5" class="empty-state">Carregando...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<script type="module" src="js/pacientes.js"></script>
+</body>
+</html>
