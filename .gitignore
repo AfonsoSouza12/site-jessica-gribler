@@ -1,1 +1,4 @@
 .claude/
+.agents/
+.codex/
+skills-lock.json
