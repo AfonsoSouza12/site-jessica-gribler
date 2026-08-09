@@ -28,6 +28,18 @@ body {
   font-family: var(--sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+
+/* Títulos usam clamp(), então larguras intermediárias deixam palavras órfãs. */
+.hero h1,
+.hero .sub,
+.services h2,
+.courses h2,
+.threshold blockquote,
+.card h3,
+.course-row h3 {
+  text-wrap: balance;
 }
 
 /* O arco de cor é autoral, não derivado do sistema — ambos os temas reafirmam a mesma paleta. */
@@ -50,6 +62,23 @@ a:focus-visible, button:focus-visible {
   outline-offset: 3px;
   border-radius: 2px;
 }
+
+/* Primeiro foco da página — fica fora da tela até receber foco por teclado. */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -6rem;
+  z-index: 60;
+  background: var(--offwhite);
+  color: var(--plum-deep);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.7em 1.2em;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.skip-link:focus, .skip-link:focus-visible { top: 1rem; }
 
 /* ===================== Header ===================== */
 header {
@@ -95,7 +124,10 @@ header {
   text-decoration: none;
   white-space: nowrap;
   border: 1px solid transparent;
+  transition: filter 200ms ease, border-color 200ms ease, transform 120ms ease;
 }
+
+.btn:active { transform: translateY(1px); }
 
 .btn-primary { background: var(--wa-green); color: #0c2f1c; }
 .btn-primary:hover { filter: brightness(1.08); }
@@ -366,6 +398,41 @@ section { position: relative; }
   .course-row { grid-template-columns: 1fr; gap: 0.6rem; }
   .course-row .btn-ghost { justify-self: start; }
 }
+
+/* ===================== Páginas de texto (privacidade) ===================== */
+.legal { background: linear-gradient(180deg, var(--plum-deep) 0%, var(--plum) 100%); }
+
+.legal h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4.5vw, 2.9rem);
+  line-height: 1.15;
+  max-width: 20ch;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.legal h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-top: 2.6rem;
+  margin-bottom: 0.7rem;
+  color: var(--lilac);
+}
+
+.legal p { max-width: 62ch; opacity: 0.88; }
+
+.legal-updated {
+  margin-top: 1rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.legal a { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ===================== Rodapé ===================== */
 footer { background: var(--plum-deep); }
