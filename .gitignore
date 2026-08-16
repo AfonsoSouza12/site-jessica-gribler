@@ -1,4 +1,11 @@
 .claude/
 .agents/
 .codex/
+.impeccable/
 skills-lock.json
+
+# Sessão de fotos original (pesada) — só as versões web otimizadas vão pro repo
+assets/photos/_AR_*.jpg
+assets/photos/cutout/
+assets/photos/_COLOQUE_AS_FOTOS_AQUI.txt
+assets/photos/og-source.svg

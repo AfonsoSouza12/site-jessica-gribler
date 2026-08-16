@@ -3,211 +3,591 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jéssica Griebler | Psicóloga Perinatal</title>
-<meta name="description" content="Jéssica Griebler — Psicóloga Perinatal. Acompanhamento do pré-natal ao puerpério para mães, e formação para psicólogas. Agende pelo WhatsApp.">
-<meta name="color-scheme" content="dark light">
+<title>Jéssica Griebler | Psicologia Perinatal</title>
+<meta name="description" content="Psicóloga perinatal. Acompanhamento do pré-natal ao puerpério para mães, e formação em psicologia perinatal para psicólogas. Agende pelo WhatsApp.">
+<meta name="color-scheme" content="light">
 
-<!-- TODO: se um domínio próprio for contratado, trocar a URL abaixo aqui e nas tags og:url / og:image -->
 <link rel="canonical" href="https://afonsosouza12.github.io/site-jessica-gribler/">
-
-<!-- Card de preview ao compartilhar no WhatsApp, Instagram e redes sociais -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Jéssica Griebler">
 <meta property="og:url" content="https://afonsosouza12.github.io/site-jessica-gribler/">
-<meta property="og:title" content="Jéssica Griebler | Psicóloga Perinatal">
-<meta property="og:description" content="Acompanhamento do pré-natal ao puerpério para mães, e formação em psicologia perinatal para psicólogas.">
-<meta property="og:image" content="https://afonsosouza12.github.io/site-jessica-gribler/images/og.png">
+<meta property="og:title" content="Jéssica Griebler | Psicologia Perinatal">
+<meta property="og:description" content="Aqui eu vejo você. Acompanhamento do pré-natal ao puerpério para mães, e formação para psicólogas.">
+<meta property="og:image" content="https://afonsosouza12.github.io/site-jessica-gribler/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Jéssica Griebler, Psicóloga Perinatal — Aqui eu vejo você.">
+<meta property="og:image:alt" content="Jéssica Griebler, Psicologia Perinatal — Aqui eu vejo você.">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/logo/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Alex+Brush&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   Jéssica Griebler — protótipo no design system real
+   Tokens copiados de tokens/colors.css, typography.css, spacing.css
+   Regras da marca: campos de cor CHAPADA (nunca gradiente),
+   acento coral, tipografia Playfair + Alex Brush + Inter,
+   títulos em minúsculas, sombras suaves só em UI.
+   ========================================================= */
+:root{
+  /* cores reais */
+  --purple-950:#340a46; --purple-800:#4a1f5c; --purple-700:#63395b; --purple-600:#7a4a70;
+  --coral-600:#c14a53; --coral-500:#d75a62; --coral-400:#dc6e75;
+  --terracotta-500:#ce5d46; --terracotta-300:#e39a86;
+  --blush-300:#e8a9ab; --blush-200:#f0c9ca; --blush-100:#f7e4e5;
+  --peach-200:#f2cfbc; --peach-100:#f8e7dc;
+  --cream:#fdf9f6; --white:#ffffff;
+  --ink:#340a46; --ink-soft:#5c4658;
+  --border-soft:#e6d4cf;
+  /* tipografia */
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-script:'Alex Brush',cursive;
+  --font-body:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  --text-xs:0.8rem; --text-sm:0.9375rem; --text-base:1.0625rem; --text-lg:1.25rem;
+  --text-xl:1.6rem; --text-2xl:2.1rem; --text-3xl:2.8rem; --text-4xl:3.8rem;
+  --tracking-wide:0.06em; --tracking-wider:0.14em;
+  /* espaço / forma */
+  --radius-md:12px; --radius-lg:20px; --radius-pill:999px;
+  --shadow-soft:0 8px 24px -8px rgba(52,10,70,0.18);
+  --shadow-card:0 4px 16px -4px rgba(52,10,70,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--cream); color:var(--ink);
+  font-family:var(--font-body); font-size:var(--text-base); line-height:1.6;
+  -webkit-font-smoothing:antialiased; text-wrap:pretty;
+}
+img{max-width:100%; display:block;}
+a{color:inherit; text-decoration:none;}
+h1,h2,h3,p{margin:0;}
+
+.wrap{max-width:1140px; margin-inline:auto; padding-inline:clamp(1.25rem,5vw,3.5rem);}
+.pad{padding-block:clamp(3.5rem,8vw,6.5rem);}
+
+/* foco / skip */
+a:focus-visible,button:focus-visible{outline:3px solid var(--coral-500); outline-offset:3px; border-radius:3px;}
+.skip-link{position:absolute; left:1rem; top:-6rem; z-index:60; background:var(--purple-950);
+  color:#fff; font-weight:600; font-size:.9rem; padding:.7em 1.2em; border-radius:var(--radius-md);}
+.skip-link:focus,.skip-link:focus-visible{top:1rem;}
+
+/* rótulos */
+.eyebrow{font-size:var(--text-xs); letter-spacing:var(--tracking-wider); text-transform:uppercase;
+  color:var(--coral-600); font-weight:600; margin:0;}
+.script{font-family:var(--font-script); color:var(--coral-500); line-height:.9;
+  font-size:clamp(2.8rem,5.5vw,4.4rem); font-weight:400;}
+.title{font-family:var(--font-display); font-weight:500; line-height:1.12; letter-spacing:-.01em;
+  text-wrap:balance;}
+
+/* botões (Button DS: primary=coral, dark=roxo, outline) */
+.btn{display:inline-flex; align-items:center; gap:.5em; font-family:var(--font-body);
+  font-weight:600; font-size:var(--text-sm); padding:.85em 1.6em; border-radius:var(--radius-pill);
+  border:1.5px solid transparent; cursor:pointer; transition:transform .15s ease, filter .15s ease, background .15s ease, color .15s ease;}
+.btn:active{transform:translateY(1px);}
+.btn-primary{background:var(--coral-600); color:#fff;}
+.btn-primary:hover{filter:brightness(1.06);}
+.btn-whatsapp{background:#25d366; color:#0b3d20;}
+.btn-whatsapp:hover{filter:brightness(1.04);}
+.btn-outline{background:transparent; color:var(--purple-800); border-color:var(--purple-600);}
+.btn-outline:hover{background:var(--purple-950); color:#fff; border-color:var(--purple-950);}
+.btn-ghost-light{background:transparent; color:#fff; border-color:rgba(255,255,255,.5);}
+.btn-ghost-light:hover{border-color:#fff;}
+.btn-sm{padding:.6em 1.15em; font-size:var(--text-xs);}
+.btn .ico{width:1.15em; height:1.15em; flex:0 0 auto;}
+
+/* badges */
+.badge{display:inline-flex; align-items:center; font-family:var(--font-body); font-weight:600;
+  font-size:var(--text-xs); letter-spacing:.02em; padding:.4em .9em; border-radius:var(--radius-pill);}
+.badge--coral{background:var(--coral-500); color:#fff;}
+.badge--purple{background:var(--purple-700); color:#fff;}
+.badge--dark{background:var(--purple-950); color:#fff;}
+.badge--peach{background:var(--peach-200); color:var(--purple-950);}
+.badge--soft{background:var(--blush-100); color:var(--coral-600);}
+
+/* ---------- header ---------- */
+header{position:sticky; top:0; z-index:40; background:rgba(253,249,246,.88);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--border-soft);}
+.headerbar{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding-block:.75rem;}
+.headerbar .logo{height:44px; width:auto;}
+.nav-links{display:flex; align-items:center; gap:1.6rem; font-size:var(--text-sm); font-weight:500;}
+.nav-links a:not(.btn){color:var(--ink-soft);}
+.nav-links a:not(.btn):hover{color:var(--coral-600);}
+@media (max-width:820px){ .nav-links .nav-item{display:none;} }
+
+/* ---------- hero ---------- */
+.hero{background:var(--cream); position:relative; overflow:hidden;}
+/* a marca, oversized, como motivo gráfico atrás do conteúdo */
+.hero::before{content:""; position:absolute; z-index:0; pointer-events:none;
+  right:-9%; bottom:-16%; width:min(62%,640px); aspect-ratio:1;
+  background:url("assets/logo/mark-color.png") no-repeat center/contain; opacity:.06;}
+.hero .wrap{position:relative; z-index:1;}
+.hero-grid{display:grid; grid-template-columns:1.06fr .94fr; gap:clamp(2rem,5vw,4.5rem); align-items:center;}
+.hero-text .eyebrow{margin-bottom:1rem;}
+.hero-text .script{margin-bottom:.1rem; font-size:clamp(3.2rem,9vw,6.2rem);}
+.hero h1{font-family:var(--font-display); font-weight:600; font-size:clamp(2.6rem,6.2vw,4.8rem);
+  line-height:1.04; letter-spacing:-.03em; color:var(--ink); max-width:13ch; text-wrap:balance;}
+.hero .lede{font-size:var(--text-lg); color:var(--ink-soft); max-width:40ch; margin-top:1.4rem;}
+.hero .ctas{display:flex; flex-wrap:wrap; gap:.9rem; margin-top:2rem;}
+.hero-photo{justify-self:center; width:min(100%,460px); position:relative;}
+.hero-photo img{width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-soft);}
+.hero-photo .seal-badge{position:absolute; right:-18px; bottom:-18px; width:124px; height:auto;
+  aspect-ratio:auto; object-fit:initial; border-radius:0; box-shadow:none;
+  filter:drop-shadow(0 6px 14px rgba(52,10,70,.28));}
+@media (max-width:820px){
+  .hero-grid{grid-template-columns:1fr; text-align:center;}
+  .hero h1,.hero .lede{max-width:none; margin-inline:auto;}
+  .hero .ctas{justify-content:center;}
+  .hero-photo{width:min(74%,300px); order:-1;}
+  .hero-photo .seal-badge{width:84px;}
+}
+
+/* ---------- faixa credencial (cor chapada coral) ---------- */
+.band{background:var(--coral-600); color:#fff; text-align:center;}
+.band .wrap{padding-block:clamp(1.8rem,4vw,2.8rem); display:flex; flex-wrap:wrap;
+  align-items:baseline; justify-content:center; gap:.2rem 1.1rem;}
+.band strong{font-family:var(--font-display); font-weight:700; font-size:clamp(3rem,8vw,5.4rem);
+  line-height:.95; letter-spacing:-.03em;}
+.band span{font-size:var(--text-base); opacity:.95; letter-spacing:.02em; max-width:22ch; text-align:left;}
+
+/* ---------- sobre mim ---------- */
+.about{background:var(--cream); position:relative; overflow:hidden;}
+.about-mark{position:absolute; right:-6%; top:50%; transform:translateY(-50%); width:min(46%,460px);
+  opacity:.05; pointer-events:none;}
+.about-grid{position:relative; display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,4rem); align-items:center;}
+.about-portrait{aspect-ratio:4/5; border-radius:var(--radius-lg); background:var(--blush-100);
+  display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-card); overflow:hidden;}
+.about-portrait img{width:100%; height:100%; object-fit:cover;}
+.about h2{margin:.2rem 0 1.2rem;}
+.about h2 .title{font-size:clamp(2.2rem,4.6vw,3.7rem); color:var(--ink); display:block; letter-spacing:-.02em;}
+.about p+p{margin-top:1rem;}
+.about p{color:var(--ink-soft);}
+.about-facts{list-style:none; padding:0; margin:1.6rem 0 0; display:flex; flex-direction:column; gap:.6rem;}
+.about-facts li{font-weight:500; color:var(--ink);}
+.about-facts li::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%;
+  background:var(--coral-500); margin-right:.7em; vertical-align:middle;}
+@media (max-width:820px){ .about-grid{grid-template-columns:1fr;} .about-portrait{max-width:340px; margin-inline:auto;} }
+
+/* ---------- serviços (para mães) ---------- */
+.services{background:var(--blush-100);}
+.section-head{margin-bottom:2.6rem;}
+.section-head .script{margin-bottom:.1rem;}
+.section-head .title{font-size:clamp(2.2rem,4.6vw,3.7rem); color:var(--ink); letter-spacing:-.02em;}
+.cards{display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;}
+@media (max-width:720px){ .cards{grid-template-columns:1fr;} }
+.card{background:var(--white); border-radius:var(--radius-lg); padding:2rem 1.8rem;
+  box-shadow:var(--shadow-card); display:flex; flex-direction:column; gap:1rem;
+  transition:transform .15s ease, box-shadow .15s ease;}
+.card:hover{transform:translateY(-4px); box-shadow:var(--shadow-soft);}
+.card h3{font-family:var(--font-display); font-weight:600; font-size:var(--text-xl); color:var(--ink);}
+.card p{color:var(--ink-soft); font-size:var(--text-sm); flex:1;}
+.card .badge{align-self:flex-start;}
+
+/* ---------- limiar / citação (coral chapado + logo branca) ---------- */
+.threshold{background:var(--coral-600); color:#fff; text-align:center; position:relative; overflow:hidden;}
+.threshold .wrap{position:relative;}
+.threshold-grid{display:grid; grid-template-columns:.75fr 1fr; gap:clamp(2rem,5vw,4rem); align-items:center; text-align:left;}
+.threshold-photo img{width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radius-lg);
+  box-shadow:0 12px 32px -8px rgba(52,10,70,.4);}
+.threshold blockquote{margin:0; max-width:20ch; font-family:var(--font-display); font-weight:500;
+  font-style:italic; font-size:clamp(1.9rem,4.6vw,3.1rem); line-height:1.24; letter-spacing:-.015em;}
+.threshold .who{margin-top:1.4rem; font-size:var(--text-xs); letter-spacing:var(--tracking-wider);
+  text-transform:uppercase; opacity:.9;}
+@media (max-width:720px){
+  .threshold-grid{grid-template-columns:1fr; text-align:center;}
+  .threshold-photo{width:min(72%,280px); margin-inline:auto;}
+  .threshold blockquote{margin-inline:auto;}
+}
+
+/* ---------- formação (roxo chapado — "outra sala") ---------- */
+.courses{background:var(--purple-950); color:#fff; position:relative; overflow:hidden;}
+.courses-logo{height:66px; width:auto; margin-bottom:1.8rem; opacity:.95;}
+.courses .eyebrow{color:var(--coral-400);}
+.courses h2{font-family:var(--font-display); font-weight:600; font-size:clamp(1.9rem,4vw,3rem); max-width:22ch;
+  line-height:1.14; letter-spacing:-.02em; text-wrap:balance;}
+.courses .lede{margin-top:.9rem; color:rgba(255,255,255,.72); max-width:52ch; font-style:italic; font-family:var(--font-display);}
+.course-list{margin-top:2.4rem; border-top:1px solid rgba(255,255,255,.18);}
+.course-row{display:grid; grid-template-columns:8rem 1fr auto; gap:1.4rem; align-items:center;
+  padding-block:1.5rem; border-bottom:1px solid rgba(255,255,255,.18);}
+.course-row .tag{font-size:var(--text-xs); letter-spacing:var(--tracking-wide); text-transform:uppercase;
+  color:var(--coral-400); font-weight:600;}
+.course-row h3{font-family:var(--font-display); font-weight:600; font-size:var(--text-xl);}
+.course-row p{color:rgba(255,255,255,.68); font-size:var(--text-sm); margin-top:.25rem; max-width:46ch;}
+.course-row .btn{justify-self:end;}
+@media (max-width:720px){ .course-row{grid-template-columns:1fr; gap:.5rem;} .course-row .btn{justify-self:start; margin-top:.5rem;} }
+
+/* ---------- pilares (camada de identidade — temas) ---------- */
+.pillars{background:var(--cream); text-align:center;}
+.pillars .lede{color:var(--ink-soft); max-width:46ch; margin:.6rem auto 2.4rem;}
+.pillar-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:1rem;}
+@media (max-width:720px){ .pillar-grid{grid-template-columns:repeat(2,1fr);} }
+.pillar{aspect-ratio:1; border-radius:var(--radius-md); display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:.1rem; padding:1rem; text-align:center;}
+.pillar .p-script{font-family:var(--font-script); font-size:clamp(2rem,4.5vw,2.7rem); line-height:.9;}
+.pillar .p-title{font-family:var(--font-display); font-weight:600; font-size:var(--text-lg); line-height:1.1;}
+.pillar--plum{background:var(--purple-700); color:#fff;} .pillar--plum .p-script{color:var(--blush-200);}
+.pillar--blush{background:var(--blush-200); color:var(--purple-950);} .pillar--blush .p-script{color:var(--coral-600);}
+.pillar--coral{background:var(--coral-500); color:#fff;} .pillar--coral .p-script{color:#fff;}
+.pillar--terracotta{background:var(--terracotta-500); color:#fff;} .pillar--terracotta .p-script{color:var(--peach-100);}
+.pillar--peach{background:var(--peach-200); color:var(--purple-950);} .pillar--peach .p-script{color:var(--terracotta-500);}
+
+/* ---------- rodapé ---------- */
+footer{background:var(--purple-950); color:rgba(255,255,255,.82);}
+.foot-inner{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.5rem;
+  padding-block:clamp(2.5rem,5vw,3.5rem);}
+.foot-inner img{height:56px; width:auto;}
+.foot-links{display:flex; gap:1.1rem; align-items:center;}
+.foot-links a{display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px;
+  border-radius:var(--radius-pill); background:rgba(255,255,255,.08); opacity:.9; transition:background .15s ease, opacity .15s ease, color .15s ease;}
+.foot-links a:hover{opacity:1; color:var(--coral-400); background:rgba(255,255,255,.16);}
+.foot-links svg{width:22px; height:22px; fill:currentColor;}
+.copyright{border-top:1px solid rgba(255,255,255,.14); padding-block:1.1rem; text-align:center;
+  font-size:var(--text-xs); color:rgba(255,255,255,.5);}
+
+
+/* ===================== motion ===================== */
+/* Momento focal: entrada ensaiada do hero (roda no load, sem depender de JS) */
+@keyframes riseIn{from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:none;}}
+@keyframes photoIn{from{opacity:0; transform:translateY(26px) scale(.985);} to{opacity:1; transform:none;}}
+@keyframes sealIn{from{opacity:0; transform:scale(.72) rotate(-14deg);} to{opacity:1; transform:none;}}
+@keyframes sealBreathe{0%,100%{transform:translateY(0) rotate(0);} 50%{transform:translateY(-5px) rotate(-2.5deg);}}
+
+.hero-text > *{animation:riseIn .7s cubic-bezier(.16,1,.3,1) both;}
+.hero-text > *:nth-child(1){animation-delay:.05s;}
+.hero-text > *:nth-child(2){animation-delay:.13s;}
+.hero-text > *:nth-child(3){animation-delay:.22s;}
+.hero-text > *:nth-child(4){animation-delay:.32s;}
+.hero-text > *:nth-child(5){animation-delay:.42s;}
+.hero-photo{animation:photoIn .85s cubic-bezier(.16,1,.3,1) .18s both;}
+.hero-photo .seal-badge{animation:sealIn .6s cubic-bezier(.16,1,.3,1) .72s both;}
+/* a marca "respira" — mesma easing, pausada fora da tela via JS */
+.hero-photo .seal-badge.idle{animation:sealBreathe 6s ease-in-out infinite;}
+
+/* Suporte: reveal discreto dos blocos-líder ao rolar.
+   Escondido só quando há JS (.js) — sem script, o conteúdo aparece normalmente. */
+.js .reveal{opacity:0; transform:translateY(14px);
+  transition:opacity .5s cubic-bezier(.16,1,.3,1), transform .5s cubic-bezier(.16,1,.3,1);}
+.js .reveal.in{opacity:1; transform:none;}
+/* stagger só onde é lista de verdade */
+.cards .card:nth-child(2){transition-delay:.08s;}
+.course-row:nth-child(2){transition-delay:.06s;}
+.course-row:nth-child(3){transition-delay:.12s;}
+
+/* Feedback / micro-interações */
+header{transition:box-shadow .25s ease;}
+header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
+.nav-links a:not(.btn){position:relative;}
+.nav-links a:not(.btn)::after{content:""; position:absolute; left:0; right:0; bottom:-3px; height:2px;
+  background:var(--coral-500); transform:scaleX(0); transform-origin:left;
+  transition:transform .22s cubic-bezier(.16,1,.3,1);}
+.nav-links a:not(.btn):hover::after{transform:scaleX(1);}
+.pillar{transition:transform .18s cubic-bezier(.16,1,.3,1);}
+.pillar:hover{transform:translateY(-5px);}
+.course-row h3{transition:color .18s ease;}
+.course-row:hover h3{color:var(--coral-400);}
+
+/* Delight: ao estender a mão (hover no "Agendar consulta"), a borboleta
+   dá uma batida de asa lenta e delicada — a marca viva reconhece o gesto.
+   Só quando o movimento é permitido. */
+@media (prefers-reduced-motion: no-preference){
+  @keyframes wingbeat{
+    0%{transform:scale(1) rotate(0);}
+    28%{transform:scale(1.07) rotate(-5deg);}
+    58%{transform:scale(.99) rotate(3deg);}
+    100%{transform:scale(1) rotate(0);}
+  }
+  .hero:has(.ctas .btn-primary:hover) .seal-badge{
+    animation:wingbeat 1.15s cubic-bezier(.16,1,.3,1);
+    transform-origin:52% 46%;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important; animation-iteration-count:1 !important;
+    animation-delay:0ms !important;}
+  .js .reveal{opacity:1; transform:none; transition:none;}
+  .hero-text > *,.hero-photo,.hero-photo .seal-badge{animation:none;}
+  .btn,.card,.pillar{transition:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* ===== A companheira — a marca acompanha o leitor e adapta o tom ao fundo ===== */
+.companion{position:fixed; right:18px; bottom:18px; width:56px; height:56px; z-index:35;
+  pointer-events:none; opacity:0; transition:opacity .5s ease;}
+.js .companion{opacity:1;}
+.companion img{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; transition:opacity .4s ease;}
+.companion .c-white{opacity:0;}
+.companion[data-tone="dark"] .c-color{opacity:0;}
+.companion[data-tone="dark"] .c-white{opacity:1;}
+@media (prefers-reduced-motion:no-preference){ .companion{animation:sealBreathe 6s ease-in-out infinite;} }
+@media (max-width:600px){ .companion{width:46px; right:12px; bottom:12px;} }
+</style>
 </head>
 <body>
+<script>document.documentElement.classList.add('js');</script>
 
-<a class="skip-link" href="#topo">Pular para o conteúdo</a>
+<a class="skip-link" href="#hero">Pular para o conteúdo</a>
+
 
 <header>
   <div class="wrap headerbar">
-    <a class="wordmark" href="#topo"><strong>Jéssica Griebler</strong></a>
-    <!-- TODO: trocar 55XXXXXXXXXXX pelo número real, formato 55DDXXXXXXXXX -->
-    <a class="btn btn-primary btn-small" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Agendar no WhatsApp</a>
+    <a href="#hero" aria-label="Jéssica Griebler — Psicologia Perinatal">
+      <img class="logo" src="assets/logo/primary-color.png" alt="Jéssica Griebler — Psicologia Perinatal">
+    </a>
+    <nav class="nav-links">
+      <a class="nav-item" href="#sobre">sobre mim</a>
+      <a class="nav-item" href="#servicos">para mães</a>
+      <a class="nav-item" href="#formacao">para psicólogas</a>
+      <!-- TODO: número real de WhatsApp -->
+      <a class="btn btn-primary btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Cheguei%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener">Agendar consulta</a>
+    </nav>
   </div>
 </header>
 
-<main id="topo">
-
-  <!-- ===================== HERO ===================== -->
-  <section class="hero">
-    <div class="wrap hero-inner">
-      <svg class="mark-hero petal-anim" viewBox="0 0 200 200" aria-hidden="true">
-        <g transform="translate(100,100) rotate(-8)" fill="none" stroke="#b478d9" stroke-width="1.4" opacity="0.75">
-          <g transform="rotate(0)"><path d="M0,0 C-7,-32 -5,-68 0,-96 C5,-68 7,-32 0,0 Z" fill="#7c06b8" fill-opacity="0.18"/></g>
-          <g transform="rotate(60)"><path d="M0,0 C-7,-32 -5,-68 0,-96 C5,-68 7,-32 0,0 Z" fill="#7c06b8" fill-opacity="0.18"/></g>
-          <g transform="rotate(120)"><path d="M0,0 C-7,-32 -5,-68 0,-96 C5,-68 7,-32 0,0 Z" fill="#7c06b8" fill-opacity="0.18"/></g>
-          <g transform="rotate(180)"><path d="M0,0 C-7,-32 -5,-68 0,-96 C5,-68 7,-32 0,0 Z" fill="#7c06b8" fill-opacity="0.18"/></g>
-          <g transform="rotate(240)"><path d="M0,0 C-7,-32 -5,-68 0,-96 C5,-68 7,-32 0,0 Z" fill="#7c06b8" fill-opacity="0.18"/></g>
-          <g transform="rotate(300)"><path d="M0,0 C-7,-32 -5,-68 0,-96 C5,-68 7,-32 0,0 Z" fill="#7c06b8" fill-opacity="0.18"/></g>
-        </g>
-      </svg>
-      <div class="hero-glow" aria-hidden="true"></div>
-
-      <p class="eyebrow">Psicóloga Perinatal</p>
-      <h1>Aqui eu vejo <em>você</em>.</h1>
-      <p class="sub">A sua história. Os seus sonhos. A mulher que você quer se tornar.</p>
-      <p class="lede">Ajudo mães a viverem a maternidade de forma leve, livre da culpa e da sobrecarga.</p>
-      <div class="ctas">
-        <a class="btn btn-primary" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Agendar no WhatsApp</a>
-        <a class="link-arrow" href="#formacao">Ver meus cursos →</a>
+<main>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="wrap pad">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Psicologia Perinatal</p>
+          <p class="script">aqui eu vejo</p>
+          <h1>você, a mulher que você quer se tornar.</h1>
+          <p class="lede">A sua história, os seus sonhos. Um acompanhamento leve, livre da culpa e da sobrecarga, do pré-natal ao puerpério.</p>
+          <div class="ctas">
+            <!-- TODO: número real de WhatsApp -->
+            <a class="btn btn-primary" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Cheguei%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20um%20acompanhamento." target="_blank" rel="noopener">Agendar consulta</a>
+            <a class="btn btn-outline" href="#formacao">Sou psicóloga</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="assets/photos/hero.jpg" alt="Jéssica Griebler, psicóloga perinatal" width="900" height="1125">
+          <img class="seal-badge" src="assets/logo/mark-color.png" alt="" aria-hidden="true">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== FAIXA DE CREDENCIAL ===================== -->
+  <!-- FAIXA CREDENCIAL -->
   <div class="band">
     <div class="wrap">
-      <p><strong>+5.000</strong> atendimentos materno-infantis — do pré-natal ao puerpério</p>
+      <strong>+5.000</strong> <span>atendimentos materno-infantis — do pré-natal ao puerpério</span>
     </div>
   </div>
 
-  <!-- ===================== SOBRE MIM ===================== -->
-  <section class="bio" id="sobre">
+  <!-- SOBRE MIM -->
+  <section class="about" id="sobre">
+    <img class="about-mark" src="assets/logo/mark-color.png" alt="" aria-hidden="true">
     <div class="wrap pad">
-      <div class="bio-grid">
-        <svg class="mark-bio reveal" viewBox="0 0 200 200" aria-hidden="true">
-          <g transform="translate(100,100)" fill="none" stroke="#faf7fb" stroke-width="1.2" opacity="0.7">
-            <g transform="rotate(0)"><path d="M0,0 C-22,-22 -26,-58 0,-88 C26,-58 22,-22 0,0 Z" fill="#b478d9" fill-opacity="0.16"/></g>
-            <g transform="rotate(60)"><path d="M0,0 C-22,-22 -26,-58 0,-88 C26,-58 22,-22 0,0 Z" fill="#b478d9" fill-opacity="0.16"/></g>
-            <g transform="rotate(120)"><path d="M0,0 C-22,-22 -26,-58 0,-88 C26,-58 22,-22 0,0 Z" fill="#b478d9" fill-opacity="0.16"/></g>
-            <g transform="rotate(180)"><path d="M0,0 C-22,-22 -26,-58 0,-88 C26,-58 22,-22 0,0 Z" fill="#b478d9" fill-opacity="0.16"/></g>
-            <g transform="rotate(240)"><path d="M0,0 C-22,-22 -26,-58 0,-88 C26,-58 22,-22 0,0 Z" fill="#b478d9" fill-opacity="0.16"/></g>
-            <g transform="rotate(300)"><path d="M0,0 C-22,-22 -26,-58 0,-88 C26,-58 22,-22 0,0 Z" fill="#b478d9" fill-opacity="0.16"/></g>
-          </g>
-        </svg>
+      <div class="about-grid">
+        <div class="about-portrait reveal">
+          <img src="assets/photos/sobre.jpg" alt="Jéssica Griebler" width="860" height="1075">
+        </div>
         <div class="reveal">
-          <p class="eyebrow">A história</p>
-          <p>Durante a graduação eu já sabia que queria atuar em psicologia hospitalar — mas foi atendendo gestantes que descobri a minha verdadeira paixão. Meu primeiro emprego foi na área hospitalar, atendendo todos os setores materno-infantis, e foi ali que precisei me especializar. Eu amava muito esse trabalho, e a psicologia perinatal me conquistou.</p>
-          <p>Escolhi a psicologia perinatal porque sempre desejei que a mãe fosse bem cuidada: eu sei a diferença que a saúde mental faz na vida de uma mãe e, consequentemente, na vida de uma criança. Com o tempo, passei a atender clinicamente — do pré-natal psicológico ao puerpério — e decidi trabalhar por conta própria, com autonomia para fazer o meu melhor por cada paciente.</p>
-          <p class="attrib">— Jéssica Griebler</p>
+          <p class="eyebrow">Sobre</p>
+          <p class="script">sobre</p>
+          <h2><span class="title">mim</span></h2>
+          <p>Durante a graduação eu já sabia que queria atuar em psicologia hospitalar — mas foi atendendo gestantes que descobri a minha verdadeira paixão. Meu primeiro emprego foi na área hospitalar, atendendo todos os setores materno-infantis, e foi ali que precisei me especializar.</p>
+          <p>Escolhi a psicologia perinatal porque sempre desejei que a mãe fosse bem cuidada: eu sei a diferença que a saúde mental faz na vida de uma mãe e, consequentemente, na vida de uma criança. Hoje atendo por conta própria, com autonomia para fazer o meu melhor por cada paciente.</p>
+          <ul class="about-facts">
+            <li>Psicóloga Perinatal</li>
+            <li>Especialista em Psicologia da Saúde e Hospitalar</li>
+            <li>Mais de 5.000 atendimentos materno-infantis</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== SERVIÇOS (MÃES) ===================== -->
-  <section class="services" id="especialidades">
+  <!-- SERVIÇOS (PARA MÃES) -->
+  <section class="services" id="servicos">
     <div class="wrap pad">
-      <p class="eyebrow">Para mães</p>
-      <h2 class="reveal">Um acompanhamento para cada momento da maternidade.</h2>
+      <div class="section-head reveal">
+        <p class="eyebrow">Para mães</p>
+        <p class="script">como posso</p>
+        <p class="title">te acompanhar</p>
+      </div>
       <div class="cards">
-        <div class="card reveal">
+        <article class="card reveal">
+          <span class="badge badge--coral">Pré-natal</span>
           <h3>Pré-natal psicológico</h3>
-          <p>Acompanhamento psicológico desde a pré-concepção até o puerpério, para viver a gestação com mais segurança e menos ansiedade.</p>
-          <a class="btn btn-primary" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Tenho%20interesse%20no%20pr%C3%A9-natal%20psicol%C3%B3gico." target="_blank" rel="noopener">Agendar no WhatsApp</a>
-        </div>
-        <div class="card reveal">
-          <h3>Acompanhamento exclusivo para Mães</h3>
+          <p>Acompanhamento desde a pré-concepção até o puerpério, para viver a gestação com mais segurança e menos ansiedade.</p>
+          <!-- TODO: número real de WhatsApp -->
+          <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Estou%20gr%C3%A1vida%20e%20gostaria%20de%20saber%20sobre%20o%20pr%C3%A9-natal%20psicol%C3%B3gico." target="_blank" rel="noopener" style="align-self:flex-start;"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
+        </article>
+        <article class="card reveal">
+          <span class="badge badge--purple">Puerpério</span>
+          <h3>Acompanhamento exclusivo para mães</h3>
           <p>Um espaço só seu para cuidar da sua saúde mental na maternidade, sem culpa e sem sobrecarga.</p>
-          <a class="btn btn-primary" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Tenho%20interesse%20no%20acompanhamento%20para%20m%C3%A3es." target="_blank" rel="noopener">Agendar no WhatsApp</a>
-        </div>
+          <!-- TODO: número real de WhatsApp -->
+          <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Sou%20m%C3%A3e%20e%20gostaria%20de%20um%20acompanhamento%20no%20puerp%C3%A9rio." target="_blank" rel="noopener" style="align-self:flex-start;"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ===================== LIMIAR / PICO DE LUZ ===================== -->
+  <!-- LIMIAR / CITAÇÃO -->
   <section class="threshold">
     <div class="wrap pad">
-      <svg class="mark-threshold reveal" viewBox="0 0 200 200" aria-hidden="true">
-        <g transform="translate(100,100)" fill="none" stroke="#350340" stroke-width="1.2" opacity="0.75">
-          <g transform="rotate(0)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#7c06b8" fill-opacity="0.14"/></g>
-          <g transform="rotate(45)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#7c06b8" fill-opacity="0.14"/></g>
-          <g transform="rotate(90)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#7c06b8" fill-opacity="0.14"/></g>
-          <g transform="rotate(135)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#7c06b8" fill-opacity="0.14"/></g>
-          <g transform="rotate(180)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#7c06b8" fill-opacity="0.14"/></g>
-          <g transform="rotate(225)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#7c06b8" fill-opacity="0.14"/></g>
-          <g transform="rotate(270)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#7c06b8" fill-opacity="0.14"/></g>
-          <g transform="rotate(315)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#7c06b8" fill-opacity="0.14"/></g>
-        </g>
-      </svg>
-      <blockquote class="reveal">"Chega de viver achando que não dá pra viver bem com a psicologia — dá sim, e eu te mostro o caminho."</blockquote>
-      <p class="tag">Para psicólogas e estudantes</p>
+      <div class="threshold-grid">
+        <div class="threshold-photo reveal">
+          <img src="assets/photos/threshold.jpg" alt="Jéssica Griebler" width="900" height="1125">
+        </div>
+        <div class="reveal">
+          <blockquote>Chega de achar que não dá pra viver bem da psicologia — dá sim, e eu te mostro o caminho.</blockquote>
+          <p class="who">Para psicólogas e estudantes</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ===================== FORMAÇÃO (PSICÓLOGAS) ===================== -->
+  <!-- FORMAÇÃO (PARA PSICÓLOGAS) -->
   <section class="courses" id="formacao">
     <div class="wrap pad">
+      <img class="courses-logo" src="assets/logo/primary-white.png" alt="Jéssica Griebler — Psicologia Perinatal">
       <p class="eyebrow">Formação e mentoria</p>
-      <h2 class="reveal">Para psicólogas e estudantes que querem atuar com segurança na psicologia perinatal.</h2>
-      <p class="lede reveal">Chega de viver achando que não dá pra viver bem com a psicologia — dá sim, e eu te mostro o caminho.</p>
-
+      <h2>Para psicólogas e estudantes que querem atuar com segurança na psicologia perinatal.</h2>
+      <p class="lede">Do primeiro atendimento à autonomia profissional — o caminho que eu trilhei, agora com você.</p>
       <div class="course-list">
         <div class="course-row reveal">
-          <p class="course-tag">Capacitação</p>
+          <span class="tag">Capacitação</span>
           <div>
             <h3>Do Pré-natal ao Puerpério</h3>
             <p>Formação completa para atuar com segurança no acompanhamento psicológico do pré-natal ao puerpério.</p>
           </div>
-          <!-- TODO: trocar pelo link real de checkout (Hotmart / Udemy / Eduzz) -->
-          <a class="btn btn-ghost btn-small" href="https://instagram.com/jessicagriebler" target="_blank" rel="noopener">Saiba mais ↗</a>
+          <!-- TODO: link real de checkout -->
+          <a class="btn btn-ghost-light btn-sm" href="#" rel="noopener">Saiba mais</a>
         </div>
         <div class="course-row reveal">
-          <p class="course-tag">Mentoria</p>
+          <span class="tag">Mentoria</span>
           <div>
             <h3>Mentoria em Pré-natal Psicológico</h3>
             <p>Mentoria para psicólogas que querem se especializar e atuar com autonomia no pré-natal psicológico.</p>
           </div>
-          <!-- TODO: trocar pelo link real de checkout -->
-          <a class="btn btn-ghost btn-small" href="https://instagram.com/jessicagriebler" target="_blank" rel="noopener">Saiba mais ↗</a>
+          <!-- TODO: link real de checkout -->
+          <a class="btn btn-ghost-light btn-sm" href="#" rel="noopener">Saiba mais</a>
         </div>
         <div class="course-row reveal">
-          <p class="course-tag">Mentoria</p>
+          <span class="tag">Mentoria</span>
           <div>
             <h3>Mentoria Lumina</h3>
             <p>Mentoria para psicólogas conquistarem autonomia e liberdade financeira com a psicologia.</p>
           </div>
-          <!-- TODO: trocar pelo link real de checkout -->
-          <a class="btn btn-ghost btn-small" href="https://instagram.com/jessicagriebler" target="_blank" rel="noopener">Saiba mais ↗</a>
+          <!-- TODO: link real de checkout -->
+          <a class="btn btn-ghost-light btn-sm" href="#" rel="noopener">Saiba mais</a>
         </div>
       </div>
     </div>
   </section>
 
-</main>
-
-<!-- ===================== RODAPÉ ===================== -->
-<footer id="contato">
-  <div class="wrap foot-inner">
-    <div class="foot-brand">
-      <svg class="mark-foot" viewBox="0 0 200 200" aria-hidden="true">
-        <g transform="translate(100,100)" fill="none" stroke="#faf7fb" stroke-width="2" opacity="0.85">
-          <g transform="rotate(0)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#b478d9" fill-opacity="0.3"/></g>
-          <g transform="rotate(60)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#b478d9" fill-opacity="0.3"/></g>
-          <g transform="rotate(120)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#b478d9" fill-opacity="0.3"/></g>
-          <g transform="rotate(180)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#b478d9" fill-opacity="0.3"/></g>
-          <g transform="rotate(240)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#b478d9" fill-opacity="0.3"/></g>
-          <g transform="rotate(300)"><path d="M0,0 C-30,-24 -34,-62 0,-92 C34,-62 30,-24 0,0 Z" fill="#b478d9" fill-opacity="0.3"/></g>
-        </g>
-      </svg>
-      <div class="names">
-        <strong>Jéssica Griebler</strong>
-        <!-- TODO: número do CRP -->
-        <span>Psicóloga Perinatal · CRP 00/00000</span>
+  <!-- PILARES (CAMADA DE IDENTIDADE) -->
+  <section class="pillars">
+    <div class="wrap pad">
+      <p class="eyebrow reveal">No Instagram</p>
+      <p class="lede reveal">Os temas que acompanho — do cuidado no pré-natal ao luto perinatal.</p>
+      <div class="pillar-grid reveal">
+        <div class="pillar pillar--plum"><span class="p-script">psico</span><span class="p-title">pré-natal</span></div>
+        <div class="pillar pillar--blush"><span class="p-script">luto</span><span class="p-title">perinatal</span></div>
+        <div class="pillar pillar--coral"><span class="p-script">sobre</span><span class="p-title">mim</span></div>
+        <div class="pillar pillar--terracotta"><span class="p-title">visitas</span></div>
+        <div class="pillar pillar--peach"><span class="p-title">psico</span></div>
       </div>
     </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <img src="assets/logo/primary-white.png" alt="Jéssica Griebler — Psicologia Perinatal">
     <div class="foot-links">
-      <a href="https://instagram.com/jessicagriebler" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Vim%20pelo%20site." target="_blank" rel="noopener">WhatsApp</a>
-      <a href="privacidade.html">Privacidade</a>
+      <a href="https://instagram.com/jessicagriebler" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <!-- TODO: número real de WhatsApp -->
+      <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Cheguei%20pelo%20seu%20site." target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
     </div>
   </div>
-  <p class="copyright">© <span id="ano">2026</span> Jéssica Griebler. Todos os direitos reservados.</p>
+  <p class="copyright">© <span id="ano">2026</span> Jéssica Griebler · Psicóloga Perinatal · CRP 08/26457 · <a href="privacidade.html" style="color:inherit; text-decoration:underline; text-underline-offset:2px;">Privacidade</a></p>
 </footer>
 
-<script src="js/script.js"></script>
+<!-- A marca acompanha o leitor por toda a página -->
+<div class="companion" aria-hidden="true">
+  <img class="c-color" src="assets/logo/mark-color.png" alt="">
+  <img class="c-white" src="assets/logo/mark-white.png" alt="">
+</div>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+  const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasIO = 'IntersectionObserver' in window;
+
+  // Reveal dos blocos-líder ao rolar
+  if (!reduce && hasIO){
+    const io = new IntersectionObserver((es)=>{es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);}});},{threshold:.14, rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+  }
+
+  // Sombra do header ao rolar
+  const header = document.querySelector('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+
+  if (!reduce){
+    // O selo passa a "respirar" após assentar; pausa quando o hero sai da tela
+    const seal = document.querySelector('.hero-photo .seal-badge');
+    if (seal){
+      seal.addEventListener('animationend', (e)=>{ if(e.animationName==='sealIn') seal.classList.add('idle'); }, {once:true});
+      if (hasIO){
+        const hero = document.querySelector('.hero');
+        new IntersectionObserver((es)=>{es.forEach(e=>{ seal.style.animationPlayState = e.isIntersecting ? 'running' : 'paused'; });},{threshold:.05}).observe(hero);
+      }
+    }
+    // Contagem do +5.000 ao entrar na tela (a prova de credibilidade)
+    const stat = document.querySelector('.band strong');
+    if (stat && hasIO){
+      const target = 5000, dur = 1200;
+      const fmt = n => '+' + Math.round(n).toLocaleString('pt-BR');
+      const run = () => {
+        const t0 = performance.now();
+        const tick = (now) => {
+          const p = Math.min(1, (now - t0) / dur);
+          const eased = 1 - Math.pow(1 - p, 3); // ease-out cúbico
+          stat.textContent = fmt(target * eased);
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+      const io2 = new IntersectionObserver((es)=>{es.forEach(e=>{ if(e.isIntersecting){ run(); io2.disconnect(); }});},{threshold:.5});
+      io2.observe(stat);
+    }
+  }
+
+  // ===== A companheira adapta o tom ao fundo atrás dela =====
+  (function(){
+    const comp=document.querySelector('.companion'); if(!comp) return;
+    const lum=(c)=>{ const m=c.match(/\d+(\.\d+)?/g); if(!m) return 1; const [r,g,b]=m.map(Number); return (0.299*r+0.587*g+0.114*b)/255; };
+    function sample(){
+      const r=comp.getBoundingClientRect();
+      let n=document.elementFromPoint(r.left+r.width/2, r.top+r.height/2), tone='light';
+      while(n){ const bg=getComputedStyle(n).backgroundColor;
+        if(bg && bg!=='rgba(0, 0, 0, 0)' && bg!=='transparent'){ tone = lum(bg)<0.5 ? 'dark':'light'; break; }
+        n=n.parentElement; }
+      comp.dataset.tone=tone;
+    }
+    let ticking=false;
+    const onScroll=()=>{ if(!ticking){ ticking=true; requestAnimationFrame(()=>{ sample(); ticking=false; }); } };
+    addEventListener('scroll', onScroll, {passive:true});
+    addEventListener('resize', onScroll);
+    requestAnimationFrame(sample);
+  })();
+</script>
 
 </body>
 </html>
