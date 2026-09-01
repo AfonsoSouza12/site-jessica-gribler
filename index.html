@@ -154,9 +154,7 @@ header{position:sticky; top:0; z-index:40; background:rgba(253,249,246,.88);
 .band span{font-size:var(--text-base); opacity:.95; letter-spacing:.02em; max-width:22ch; text-align:left;}
 
 /* ---------- sobre mim ---------- */
-.about{background:var(--cream); position:relative; overflow:hidden;}
-.about-mark{position:absolute; right:-6%; top:50%; transform:translateY(-50%); width:min(46%,460px);
-  opacity:.05; pointer-events:none;}
+.about{background:var(--cream); position:relative;}
 .about-grid{position:relative; display:grid; grid-template-columns:1fr 1.05fr; gap:clamp(2rem,5vw,4.5rem); align-items:start;}
 .about-portrait{position:sticky; top:88px; aspect-ratio:2/3; border-radius:var(--radius-lg); background:var(--blush-100);
   display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-card); overflow:hidden;}
@@ -383,7 +381,6 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
 
   <!-- SOBRE MIM -->
   <section class="about" id="sobre">
-    <img class="about-mark" src="assets/logo/mark-color.png" alt="" aria-hidden="true">
     <div class="wrap pad">
       <div class="about-grid">
         <div class="about-portrait reveal">
