@@ -89,7 +89,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral-500); outline
 .btn:active{transform:translateY(1px);}
 .btn-primary{background:var(--coral-600); color:#fff;}
 .btn-primary:hover{filter:brightness(1.06);}
-.btn-whatsapp{background:#25d366; color:#0b3d20;}
+.btn-whatsapp{background:#25d366; color:#fff;}
 .btn-whatsapp:hover{filter:brightness(1.04);}
 .btn-outline{background:transparent; color:var(--purple-800); border-color:var(--purple-600);}
 .btn-outline:hover{background:var(--purple-950); color:#fff; border-color:var(--purple-950);}
@@ -129,6 +129,7 @@ header{position:sticky; top:0; z-index:40; background:rgba(253,249,246,.88);
 .hero-text .script{margin-bottom:.1rem; font-size:clamp(3.2rem,9vw,6.2rem);}
 .hero h1{font-family:var(--font-display); font-weight:600; font-size:clamp(2.6rem,6.2vw,4.8rem);
   line-height:1.04; letter-spacing:-.03em; color:var(--ink); max-width:13ch; text-wrap:balance;}
+.hero h1 .hero-you{color:var(--coral-600); font-weight:700;}
 .hero .lede{font-size:var(--text-lg); color:var(--ink-soft); max-width:40ch; margin-top:1.4rem;}
 .hero .ctas{display:flex; flex-wrap:wrap; gap:.9rem; margin-top:2rem;}
 .hero-photo{justify-self:center; width:min(100%,460px); position:relative;}
@@ -172,20 +173,130 @@ header{position:sticky; top:0; z-index:40; background:rgba(253,249,246,.88);
   .about-portrait{position:static; max-width:340px; margin-inline:auto;}
 }
 
-/* ---------- serviços (para mães) ---------- */
-.services{background:var(--blush-100);}
-.section-head{margin-bottom:2.6rem;}
+/* ---------- especialidades ---------- */
+.specialties{background:var(--purple-950); color:#fff; position:relative; overflow:hidden;}
+.specialties::before{content:""; position:absolute; right:-10%; bottom:-42%; width:min(58vw,620px); aspect-ratio:1;
+  background:url("assets/logo/mark-white.png") no-repeat center/contain; opacity:.035; pointer-events:none;}
+.specialties-grid{position:relative; z-index:1; display:grid; grid-template-columns:.78fr 1.22fr;
+  gap:clamp(3rem,8vw,7rem); align-items:start;}
+.specialties-head .script{color:var(--coral-400); font-size:clamp(3.2rem,6vw,5.2rem);}
+.specialties h2{margin:0;}
+.specialties h2 .title{display:block; max-width:8ch; color:#fff;
+  font-size:clamp(2.6rem,5.5vw,4.8rem); letter-spacing:-.03em;}
+.specialty-list{list-style:none; margin:0; padding:0; border-top:1px solid rgba(255,255,255,.24);}
+.specialty-list li{padding:clamp(1rem,2vw,1.35rem) 0; border-bottom:1px solid rgba(255,255,255,.24);
+  font-family:var(--font-display); font-weight:600; font-size:clamp(1.55rem,3vw,2.35rem);
+  line-height:1.15; letter-spacing:-.015em;}
+.specialty-list li:last-child{padding-block:clamp(1.35rem,2.6vw,1.7rem);}
+@media (max-width:820px){
+  .specialties-grid{grid-template-columns:1fr; gap:2.6rem;}
+  .specialties h2 .title{max-width:none;}
+}
+
+/* ---------- atendimentos ---------- */
+.services{background:var(--cream);}
+.section-head{margin-bottom:clamp(3rem,6vw,5rem);}
 .section-head .script{margin-bottom:.1rem;}
 .section-head .title{font-size:clamp(2.2rem,4.6vw,3.7rem); color:var(--ink); letter-spacing:-.02em;}
-.cards{display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;}
-@media (max-width:720px){ .cards{grid-template-columns:1fr;} }
-.card{background:var(--white); border-radius:var(--radius-lg); padding:2rem 1.8rem;
-  box-shadow:var(--shadow-card); display:flex; flex-direction:column; gap:1rem;
-  transition:transform .15s ease, box-shadow .15s ease;}
-.card:hover{transform:translateY(-4px); box-shadow:var(--shadow-soft);}
-.card h3{font-family:var(--font-display); font-weight:600; font-size:var(--text-xl); color:var(--ink);}
-.card p{color:var(--ink-soft); font-size:var(--text-sm); flex:1;}
-.card .badge{align-self:flex-start;}
+.service-list{border-top:1px solid var(--border-soft);}
+.service-item{padding:clamp(2.8rem,6vw,4.8rem) 0; border-bottom:1px solid var(--border-soft);}
+.service-heading{display:grid; grid-template-columns:2.3rem 1fr; gap:1rem; align-items:start;}
+.service-number{padding-top:.35rem; color:var(--coral-600); font-size:var(--text-xs);
+  font-weight:700; letter-spacing:var(--tracking-wide);}
+.service-kicker{display:block; margin-bottom:.55rem; color:var(--coral-600); font-size:var(--text-xs);
+  font-weight:700; letter-spacing:var(--tracking-wider); text-transform:uppercase;}
+.service-item h3{margin:0; max-width:23ch; font-family:var(--font-display); font-weight:600;
+  font-size:clamp(1.9rem,3.8vw,3rem); line-height:1.08; letter-spacing:-.025em; text-wrap:balance;}
+.service-body{margin-top:1.7rem; padding-left:3.3rem;}
+.service-copy{max-width:78ch;}
+.service-copy p{color:var(--ink-soft);}
+.service-copy p+p{margin-top:1rem;}
+.service-actions{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.5rem;}
+.course-toggle .chevron{fill:none; stroke:currentColor; stroke-width:2; transition:transform .2s ease;}
+.course-toggle[aria-expanded="true"] .chevron{transform:rotate(180deg);}
+.course-details{margin-top:1.8rem; padding-top:1.6rem; border-top:1px solid var(--border-soft); color:var(--ink-soft);}
+.course-details[hidden]{display:none;}
+.course-details-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,4rem);}
+.course-details h4{margin:0 0 .8rem; color:var(--ink); font-family:var(--font-display); font-size:var(--text-xl);}
+.course-details ol{margin:0; padding-left:1.35rem;}
+.course-details li+li{margin-top:.55rem;}
+@media (max-width:720px){
+  .service-heading{grid-template-columns:1.8rem 1fr; gap:.6rem;}
+  .service-body{padding-left:0;}
+  .course-details-grid{grid-template-columns:1fr;}
+}
+
+/* ---------- depoimentos ---------- */
+.testimonials{background:var(--cream);}
+.testimonials-head{display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(3rem,8vw,7rem);
+  align-items:end; margin-bottom:clamp(3rem,6vw,4.5rem);}
+.testimonials-head h2{margin:0;}
+.testimonials-head .script{display:block; margin-bottom:-.2rem;}
+.testimonials-head .title{display:block; max-width:11ch; font-size:clamp(2.3rem,5vw,4.2rem);
+  line-height:1.02; letter-spacing:-.035em;}
+.testimonials-intro{margin:0; max-width:43ch; color:var(--ink-soft);}
+.testimonial-carousel{position:relative; overflow:hidden; border-top:1px solid var(--border-soft);
+  border-bottom:1px solid var(--border-soft); padding-block:clamp(2.5rem,5vw,4.5rem);
+  padding-left:clamp(3.8rem,8vw,6rem); padding-right:clamp(2.8rem,6vw,4.5rem);}
+.testimonial-slide{display:none; grid-template-columns:.28fr 1.72fr; gap:clamp(1.5rem,5vw,4rem);
+  align-items:start; min-height:330px;}
+.testimonial-slide.is-active{display:grid;}
+.testimonial-slide.is-active.from-right{animation:testimonialFromRight .5s cubic-bezier(.22,.75,.2,1);}
+.testimonial-slide.is-active.from-left{animation:testimonialFromLeft .5s cubic-bezier(.22,.75,.2,1);}
+@keyframes testimonialFromRight{from{opacity:0; transform:translateX(70px);}to{opacity:1; transform:none;}}
+@keyframes testimonialFromLeft{from{opacity:0; transform:translateX(-70px);}to{opacity:1; transform:none;}}
+.testimonial-number{color:var(--coral-500); font-family:var(--font-display); font-weight:500;
+  font-size:clamp(3rem,7vw,5rem); line-height:1;}
+.testimonial-quote{margin:0; max-width:72ch; color:var(--purple-800); font-family:var(--font-display);
+  font-style:italic; font-size:clamp(1.05rem,1.55vw,1.3rem); line-height:1.7; text-wrap:balance;}
+.testimonial-author{margin-top:1.8rem; font-size:.76rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;}
+.testimonial-slide details{max-width:78ch; margin-top:1.4rem; padding-top:1rem; border-top:1px solid var(--border-soft);}
+.testimonial-slide summary{display:inline-flex; align-items:center; gap:.55rem; color:var(--coral-600);
+  font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; list-style:none;}
+.testimonial-slide summary::-webkit-details-marker{display:none;}
+.testimonial-slide summary::after{content:'+'; display:grid; place-items:center; width:1.7rem; height:1.7rem;
+  border:1px solid currentColor; border-radius:50%;}
+.testimonial-slide details[open] summary::after{content:'−';}
+.testimonial-full{margin-top:1.6rem; max-width:82ch; color:var(--ink-soft); font-size:.94rem; line-height:1.7;}
+.testimonial-full p{margin:0;}
+.testimonial-full p+p{margin-top:1rem;}
+.testimonial-arrow{position:absolute; z-index:2; top:50%; display:inline-grid; place-items:center;
+  width:42px; height:42px; padding:0; border:0; background:transparent; color:var(--purple-950); cursor:pointer;
+  transform:translateY(-50%); transition:color .15s ease;}
+.testimonial-arrow--prev{left:.1rem;}
+.testimonial-arrow--next{right:.1rem;}
+.testimonial-arrow:hover{color:var(--coral-600);}
+.testimonial-arrow svg{width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:3;
+  stroke-linecap:round; stroke-linejoin:round;}
+.testimonial-progress{position:absolute; right:0; bottom:-1px; left:0; height:2px; overflow:hidden;}
+.testimonial-progress span{display:block; width:0; height:100%; background:var(--coral-500);}
+.testimonial-carousel.is-playing .testimonial-progress span{animation:testimonialProgress 8s linear forwards;}
+@keyframes testimonialProgress{from{width:0;}to{width:100%;}}
+.testimonial-controls{display:flex; align-items:center; justify-content:center; margin-top:1.5rem;}
+.testimonial-controls-center{display:flex; align-items:center; justify-content:center; gap:.8rem;}
+.testimonial-dots{display:flex; align-items:center; justify-content:center; gap:.48rem; min-height:10px;}
+.testimonial-dot{width:7px; height:7px; padding:0; border:0; border-radius:var(--radius-pill);
+  background:#d8c5c1; cursor:pointer; transition:background .25s ease, transform .2s ease;}
+.testimonial-dot:hover{background:var(--blush-300); transform:scale(1.2);}
+.testimonial-dot.is-active{width:28px; background:var(--coral-500);}
+.testimonial-position{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+.testimonial-autoplay{display:inline-flex; align-items:center; justify-content:center; gap:.45rem; margin-left:.45rem;
+  padding:.4rem .55rem; border:0; background:transparent; color:var(--purple-950); font-family:var(--font-body);
+  font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; cursor:pointer;}
+.testimonial-autoplay:hover{color:var(--coral-600);}
+.testimonial-autoplay svg{width:13px; height:13px; fill:currentColor;}
+.testimonial-autoplay svg[hidden]{display:none;}
+.testimonial-note{display:flex; align-items:center; gap:.55rem; margin-top:1.3rem; color:var(--ink-soft); font-size:.76rem;}
+.testimonial-note::before{content:''; width:7px; height:7px; flex:0 0 auto; border-radius:50%; background:var(--coral-500);}
+@media (max-width:720px){
+  .testimonials-head{grid-template-columns:1fr; gap:1.5rem;}
+  .testimonials-head .title{max-width:none;}
+  .testimonial-carousel{padding-left:3.8rem; padding-right:3rem;}
+  .testimonial-slide,.testimonial-slide.is-active{grid-template-columns:1fr; gap:1.2rem; min-height:470px;}
+  .testimonial-number{font-size:2.6rem;}
+  .testimonial-autoplay .autoplay-label{display:none;}
+}
 
 /* ---------- limiar / citação (coral chapado + logo branca) ---------- */
 .threshold{background:var(--coral-600); color:#fff; text-align:center; position:relative; overflow:hidden;}
@@ -219,21 +330,6 @@ header{position:sticky; top:0; z-index:40; background:rgba(253,249,246,.88);
 .course-row p{color:rgba(255,255,255,.68); font-size:var(--text-sm); margin-top:.25rem; max-width:46ch;}
 .course-row .btn{justify-self:end;}
 @media (max-width:720px){ .course-row{grid-template-columns:1fr; gap:.5rem;} .course-row .btn{justify-self:start; margin-top:.5rem;} }
-
-/* ---------- pilares (camada de identidade — temas) ---------- */
-.pillars{background:var(--cream); text-align:center;}
-.pillars .lede{color:var(--ink-soft); max-width:46ch; margin:.6rem auto 2.4rem;}
-.pillar-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:1rem;}
-@media (max-width:720px){ .pillar-grid{grid-template-columns:repeat(2,1fr);} }
-.pillar{aspect-ratio:1; border-radius:var(--radius-md); display:flex; flex-direction:column;
-  align-items:center; justify-content:center; gap:.1rem; padding:1rem; text-align:center;}
-.pillar .p-script{font-family:var(--font-script); font-size:clamp(2rem,4.5vw,2.7rem); line-height:.9;}
-.pillar .p-title{font-family:var(--font-display); font-weight:600; font-size:var(--text-lg); line-height:1.1;}
-.pillar--plum{background:var(--purple-700); color:#fff;} .pillar--plum .p-script{color:var(--blush-200);}
-.pillar--blush{background:var(--blush-200); color:var(--purple-950);} .pillar--blush .p-script{color:var(--coral-600);}
-.pillar--coral{background:var(--coral-500); color:#fff;} .pillar--coral .p-script{color:#fff;}
-.pillar--terracotta{background:var(--terracotta-500); color:#fff;} .pillar--terracotta .p-script{color:var(--peach-100);}
-.pillar--peach{background:var(--peach-200); color:var(--purple-950);} .pillar--peach .p-script{color:var(--terracotta-500);}
 
 /* ---------- rodapé ---------- */
 footer{background:var(--purple-950); color:rgba(255,255,255,.82);}
@@ -285,8 +381,6 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
   background:var(--coral-500); transform:scaleX(0); transform-origin:left;
   transition:transform .22s cubic-bezier(.16,1,.3,1);}
 .nav-links a:not(.btn):hover::after{transform:scaleX(1);}
-.pillar{transition:transform .18s cubic-bezier(.16,1,.3,1);}
-.pillar:hover{transform:translateY(-5px);}
 .course-row h3{transition:color .18s ease;}
 .course-row:hover h3{color:var(--coral-400);}
 
@@ -311,7 +405,7 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
     animation-delay:0ms !important;}
   .js .reveal{opacity:1; transform:none; transition:none;}
   .hero-text > *,.hero-photo,.hero-photo .seal-badge{animation:none;}
-  .btn,.card,.pillar{transition:none;}
+  .btn,.card{transition:none;}
   html{scroll-behavior:auto;}
 }
 
@@ -356,8 +450,8 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
         <div class="hero-text">
           <p class="eyebrow">Psicologia Perinatal</p>
           <p class="script">aqui eu vejo</p>
-          <h1>você, a mulher que você quer se tornar.</h1>
-          <p class="lede">A sua história, os seus sonhos. Um acompanhamento leve, livre da culpa e da sobrecarga, do pré-natal ao puerpério.</p>
+          <h1><span class="hero-you">VOCÊ</span>, a mulher e mãe que quer se tornar</h1>
+          <p class="lede">A sua história, seus sonhos e desafios diários. Um espaço totalmente seu, livre de qualquer julgamento. Onde você pode sentir, falar e ser ouvida inteiramente.</p>
           <div class="ctas">
             <!-- TODO: número real de WhatsApp -->
             <a class="btn btn-primary" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Cheguei%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20um%20acompanhamento." target="_blank" rel="noopener">Agendar consulta</a>
@@ -395,7 +489,7 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
           <p>Foi essa experiência que me levou a buscar especialização em <em>Psicologia Perinatal e Psicologia da Saúde e Hospitalar</em> e a compreender, cada vez mais, que cuidar de uma mãe também é cuidar de toda uma família.</p>
           <p>Escolhi a Psicologia Perinatal porque acredito que a maternidade não precisa ser vivida em silêncio, culpa ou solidão. Existe espaço para o amor e para o cansaço, para a felicidade e para o medo, para a realização e para a ambivalência. E acredito que cada mulher merece ser acolhida em tudo aquilo que sente — sem julgamentos e sem precisar corresponder à imagem da “mãe perfeita”.</p>
           <p>Hoje, atuo de forma independente, podendo oferecer um acompanhamento construído com escuta, conhecimento técnico e, principalmente, respeito pela história e pelo momento de cada mulher.</p>
-          <p>E, antes de ser psicóloga, eu também sou a Gi: tenho dois cachorros, o Thor e o Bartolomeu, adoro jogar beach tennis, viajar, conhecer lugares novos e, se tiver um bom vinho no caminho, melhor ainda. 😊</p>
+          <p>E, antes de ser psicóloga, eu também sou a Jé: tenho dois cachorros, o Thor e o Bartolomeu, adoro jogar beach tennis, viajar, conhecer lugares novos e, se tiver um bom vinho no caminho, melhor ainda.</p>
           <p>Porque acredito que o cuidado também acontece quando conseguimos enxergar a pessoa para além do papel que ela exerce.</p>
           <p class="about-close">Meu trabalho é cuidar da mulher que existe por trás da mãe.</p>
         </div>
@@ -403,30 +497,219 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
     </div>
   </section>
 
-  <!-- SERVIÇOS (PARA MÃES) -->
+  <!-- ESPECIALIDADES -->
+  <section class="specialties" id="especialidades">
+    <div class="wrap pad specialties-grid">
+      <div class="specialties-head reveal">
+        <p class="script">especialidades</p>
+        <h2><span class="title">de atendimento</span></h2>
+      </div>
+      <ul class="specialty-list reveal">
+        <li>Saúde da mulher</li>
+        <li>Tentantes</li>
+        <li>Gestantes</li>
+        <li>Puérperas</li>
+        <li>Mães que perderam seus bebês</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ATENDIMENTOS -->
   <section class="services" id="servicos">
     <div class="wrap pad">
       <div class="section-head reveal">
-        <p class="eyebrow">Para mães</p>
+        <p class="eyebrow">Atendimentos</p>
         <p class="script">como posso</p>
         <p class="title">te acompanhar</p>
       </div>
-      <div class="cards">
-        <article class="card reveal">
-          <span class="badge badge--coral">Pré-natal</span>
-          <h3>Pré-natal psicológico</h3>
-          <p>Acompanhamento desde a pré-concepção até o puerpério, para viver a gestação com mais segurança e menos ansiedade.</p>
-          <!-- TODO: número real de WhatsApp -->
-          <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Estou%20gr%C3%A1vida%20e%20gostaria%20de%20saber%20sobre%20o%20pr%C3%A9-natal%20psicol%C3%B3gico." target="_blank" rel="noopener" style="align-self:flex-start;"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
+      <div class="service-list reveal">
+        <article class="service-item">
+          <div class="service-heading">
+            <span class="service-number">01</span>
+            <div><span class="service-kicker">Primeiro encontro</span><h3>Como funciona o primeiro atendimento comigo</h3></div>
+          </div>
+          <div class="service-body">
+            <div class="service-copy">
+              <p>Na primeira sessão, você terá um espaço exclusivo para falar sobre o que sente e precisa, sem julgamentos. Você não precisa chegar sabendo o que dizer: eu também farei perguntas para facilitar.</p>
+              <p>Esse encontro avaliativo me permite conhecer você e compreender os motivos que a levaram à terapia. A partir dele, definiremos juntas a frequência das sessões, os objetivos e o formato do acompanhamento.</p>
+            </div>
+            <div class="service-actions">
+              <!-- TODO: número real de WhatsApp -->
+              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Gostaria%20de%20saber%20como%20funciona%20o%20primeiro%20atendimento." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
+            </div>
+          </div>
         </article>
-        <article class="card reveal">
-          <span class="badge badge--purple">Puerpério</span>
-          <h3>Acompanhamento exclusivo para mães</h3>
-          <p>Um espaço só seu para cuidar da sua saúde mental na maternidade, sem culpa e sem sobrecarga.</p>
-          <!-- TODO: número real de WhatsApp -->
-          <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Sou%20m%C3%A3e%20e%20gostaria%20de%20um%20acompanhamento%20no%20puerp%C3%A9rio." target="_blank" rel="noopener" style="align-self:flex-start;"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
+
+        <article class="service-item">
+          <div class="service-heading">
+            <span class="service-number">02</span>
+            <div><span class="service-kicker">Psicoterapia</span><h3>Psicoterapia para mulheres tentantes e não mães</h3></div>
+          </div>
+          <div class="service-body">
+            <div class="service-copy"><p>Um espaço para falar abertamente, ser ouvida e acolhida sem julgamentos.</p></div>
+            <div class="service-actions">
+              <!-- TODO: número real de WhatsApp -->
+              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Gostaria%20de%20saber%20sobre%20a%20psicoterapia%20para%20mulheres." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-item">
+          <div class="service-heading">
+            <span class="service-number">03</span>
+            <div><span class="service-kicker">Gestação</span><h3>Pré-Natal Psicológico</h3></div>
+          </div>
+          <div class="service-body">
+            <div class="service-copy">
+              <p>O Pré-Natal Psicológico oferece escuta, acolhimento e psicoeducação para ajudar você a compreender as transformações emocionais da gestação e se preparar para o parto, o puerpério e a maternidade.</p>
+              <p>Nos encontros, trabalhamos medos, expectativas, mudanças na rotina e nos relacionamentos, rede de apoio e preparação emocional para a chegada do bebê. No primeiro atendimento, avaliamos se esse acompanhamento ou um processo psicoterapêutico faz mais sentido para você.</p>
+            </div>
+            <div class="service-actions">
+              <!-- TODO: número real de WhatsApp -->
+              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Estou%20gr%C3%A1vida%20e%20gostaria%20de%20saber%20sobre%20o%20pr%C3%A9-natal%20psicol%C3%B3gico." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-item">
+          <div class="service-heading">
+            <span class="service-number">04</span>
+            <div><span class="service-kicker">Pós-parto</span><h3>Acompanhamento exclusivo para mães no pós-parto</h3></div>
+          </div>
+          <div class="service-body">
+            <div class="service-copy">
+              <p>O pós-parto pode reunir amor, cansaço, cobranças, sobrecarga e mudanças profundas na identidade e nos relacionamentos. Este é um espaço exclusivo para falar sobre o que nem sempre consegue dizer e compreender suas emoções.</p>
+              <p>Juntas, buscamos caminhos mais possíveis para cuidar de você, fortalecer sua rede de apoio e construir uma maternidade real, sem a exigência de perfeição. Porque cuidar de quem cuida também é essencial.</p>
+            </div>
+            <div class="service-actions">
+              <!-- TODO: número real de WhatsApp -->
+              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Sou%20m%C3%A3e%20e%20gostaria%20de%20um%20acompanhamento%20no%20p%C3%B3s-parto." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-item">
+          <div class="service-heading">
+            <span class="service-number">05</span>
+            <div><span class="service-kicker">Curso online</span><h3>Tornar-se Mãe</h3></div>
+          </div>
+          <div class="service-body">
+            <div class="service-copy">
+              <p>O Tornar-se Mãe é um curso online para ajudar você a compreender e atravessar as transformações emocionais da maternidade com mais segurança, confiança e acolhimento.</p>
+              <p>Você aprenderá a reconhecer sentimentos como medo, culpa, ambivalência e insegurança, além de estratégias para lidar com o puerpério e a nova rotina.</p>
+              <p>Um espaço para desconstruir a maternidade perfeita e construir uma relação mais real e gentil consigo mesma e com seu bebê, no seu próprio tempo.</p>
+            </div>
+            <div class="service-actions">
+              <!-- TODO: número real de WhatsApp -->
+              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20curso%20Tornar-se%20M%C3%A3e." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Quero conhecer o curso</a>
+              <button class="btn btn-outline btn-sm course-toggle" type="button" aria-expanded="false" aria-controls="course-details"><span class="toggle-label">Ver encontros e aulas bônus</span><svg class="ico chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            </div>
+            <div class="course-details" id="course-details" hidden>
+              <div class="course-details-grid">
+                <div>
+                  <h4>Encontros</h4>
+                  <ol>
+                    <li>Você deveria amar seu bebê desde a descoberta da gestação?</li>
+                    <li>Sua ansiedade vai prejudicar seu bebê?</li>
+                    <li>Como criar uma relação forte e saudável com seu bebê desde a gestação.</li>
+                    <li>Enfrentando palpites e se sentindo segura para o parto.</li>
+                    <li>Amamentação e as emoções no puerpério.</li>
+                  </ol>
+                </div>
+                <div>
+                  <h4>Aulas bônus</h4>
+                  <ol>
+                    <li>Como se reencontrar no seu guarda-roupa após a maternidade?</li>
+                    <li>Como educar uma criança emocionalmente saudável.</li>
+                    <li>Alimentando a vida que cresce.</li>
+                    <li>Como se preparar para o parto.</li>
+                    <li>Aquisição da fala e da linguagem desde a gestação: como a comunicação começa antes mesmo do nascimento.</li>
+                    <li>Grávidas podem praticar atividade física?</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
         </article>
       </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="testimonials" id="depoimentos" aria-labelledby="depoimentos-title">
+    <div class="wrap pad">
+      <div class="testimonials-head reveal">
+        <h2 id="depoimentos-title"><span class="script">elas contam</span><span class="title">como foi se sentir acolhida</span></h2>
+        <p class="testimonials-intro">Experiências reais de mulheres e famílias que encontraram escuta, orientação e acolhimento em diferentes momentos de suas histórias.</p>
+      </div>
+
+      <div class="testimonial-carousel reveal" id="testimonial-carousel">
+        <article class="testimonial-slide is-active">
+          <span class="testimonial-number">01</span>
+          <div><blockquote class="testimonial-quote">“Só queria deixar aqui registrado o quão foram importantes esses encontros, tanto online quanto o presencial que pude ir. A gente se preocupa tanto com o parto, mas os dez primeiros dias pós-parto, que é o baby blues, são muito difíceis. Se não fossem esses encontros, eu ia achar que estava ficando louca, kkk. Foi muito bom saber antes o que me aguardava. Obrigada e beijos.”</blockquote><p class="testimonial-author">Paciente anônima</p></div>
+        </article>
+        <article class="testimonial-slide">
+          <span class="testimonial-number">02</span>
+          <div><blockquote class="testimonial-quote">“Nunca vou esquecer que foi você que me tirou do fundo do poço. Falo para todo mundo o quanto você me salvou! Luz na minha vida. Não tem uma decisão em que eu não pense: ‘o que a Jéssica te falaria?’ ou o famoso ‘e tá tudo bem!’. Foram três anos e pouco de muito autoconhecimento até você me dar alta, mas mudou completamente minha vida e meu jeito de ver a vida. Já passaram anos, mas você está sempre presente nos meus pensamentos!”</blockquote><p class="testimonial-author">Paciente anônima</p></div>
+        </article>
+        <article class="testimonial-slide">
+          <span class="testimonial-number">03</span>
+          <div>
+            <blockquote class="testimonial-quote">“O pré-natal psicológico contribuiu muito para que a gestação fosse vivenciada com mais tranquilidade, consciência e preparo.”</blockquote>
+            <details>
+              <summary>Ler depoimento completo</summary>
+              <div class="testimonial-full">
+                <p>Quando descobrimos a gestação, começamos a pesquisar sobre o pré-natal psicológico. Como eu sou psicóloga, já tinha algum conhecimento sobre a importância de cuidar da saúde mental durante a gestação, mas, mesmo assim, quisemos vivenciar essa experiência juntos.</p>
+                <p>Estamos muito acostumados a pensar no pré-natal como algo voltado para a parte física e para acompanhar a saúde do bebê, mas pouco se fala sobre a saúde emocional da mãe, do pai e sobre todas as mudanças que acontecem com o casal nesse período. Por isso, decidimos fazer o pré-natal psicológico com a Jéssica, e hoje podemos dizer que fez muita diferença para nós.</p>
+                <p>Durante os encontros, conseguimos falar sobre medos, inseguranças, expectativas e também sobre coisas que, às vezes, a gente sente, mas não consegue colocar em palavras. Conversamos muito sobre o parto, o puerpério, a chegada da nossa filha, a nossa relação enquanto casal e também sobre a nossa rede de apoio: com quem poderíamos contar e que tipo de ajuda poderíamos precisar nesse novo momento.</p>
+                <p>Foi muito importante ter esse espaço para nós dois, porque não ficou somente como um acompanhamento individual, mas como uma preparação enquanto casal e enquanto família.</p>
+                <p>A Jéssica sempre foi muito acolhedora, empática e disponível para ouvir nossas dúvidas. A gente nunca sentiu que alguma pergunta era boba ou que não poderia ser feita. Ao mesmo tempo em que acolhia, ela também trazia muito conhecimento científico e explicava de uma forma muito clara, o que nos trouxe bastante segurança.</p>
+                <p>Para nós, o pré-natal psicológico contribuiu muito para que a gestação fosse vivenciada com mais tranquilidade, consciência e preparo. Também nos ajudou a entender que não precisamos estar preparados para tudo, mas podemos nos preparar para as mudanças, reconhecer nossas dificuldades e saber onde buscar apoio quando for necessário.</p>
+                <p>Hoje acreditamos que, assim como o pré-natal médico é fundamental para cuidar da saúde da mãe e do bebê, cuidar da saúde emocional também deveria fazer parte desse processo. A gestação, o parto e o puerpério são momentos de muitas transformações, e ter esse suporte fez toda a diferença para nós.</p>
+                <p>Somos muito gratos à Jéssica por estar fazendo parte desse momento tão importante da nossa vida e por nos ajudar a chegar mais preparados e mais tranquilos para a chegada da nossa filha. ❤️</p>
+              </div>
+            </details>
+            <p class="testimonial-author">Casal acompanhado</p>
+          </div>
+        </article>
+        <article class="testimonial-slide">
+          <span class="testimonial-number">04</span>
+          <div><blockquote class="testimonial-quote">“Você é maravilhosa! Não está ajudando um pouco, está ajudando muito! Sempre quis autoconhecimento e amadurecimento, e eu estou encontrando isso nas tuas sessões.”</blockquote><p class="testimonial-author">Paciente anônima</p></div>
+        </article>
+        <article class="testimonial-slide">
+          <span class="testimonial-number">05</span>
+          <div><blockquote class="testimonial-quote">“Especialista no assunto! Sou eternamente grata à Jéssica por ter me ajudado a viver uma maternidade mais leve.”</blockquote><p class="testimonial-author">Paciente anônima</p></div>
+        </article>
+        <article class="testimonial-slide">
+          <span class="testimonial-number">06</span>
+          <div><blockquote class="testimonial-quote">“O pré-natal psicológico foi muito importante. Me proporcionou autoconhecimento, ajudou a lidar melhor com meus sentimentos, a preparar minha filha mais velha para a chegada da irmã, orientar minha rede de apoio e me sentir mais segura. A Jéssica também faz alguns atendimentos com o pai, para orientá-lo e deixar tudo alinhado. Durante o puerpério, consegui lidar melhor com o turbilhão de sentimentos dessa fase. Nesse período mais delicado, ela mantém contato diário, e foi maravilhoso ter alguém com conhecimento para apoiar, orientar e acolher. Isso me proporcionou um puerpério infinitamente mais leve do que o primeiro, quando não tive acompanhamento.”</blockquote><p class="testimonial-author">Paciente anônima</p></div>
+        </article>
+        <article class="testimonial-slide">
+          <span class="testimonial-number">07</span>
+          <div><blockquote class="testimonial-quote">“Oi, Jé! O bebê nem nasceu e já estamos colhendo os frutos do pré-natal psicológico. Ontem passei o dia com contrações e, à noite, resolvemos ir até o hospital. O papai ficou superatencioso o dia todo. No caminho, pediu para eu escolher uma música de que gostasse para me acalmar. Ele vem se mostrando muito atencioso e preocupado conosco. Sei que tem muito da sua participação aí, pois são coisas que tenho certeza de que ele não perceberia sozinho. Foi apenas um alarme falso, mas valeu demais a experiência de ver o cuidado do papai com tudo.”</blockquote><p class="testimonial-author">Paciente anônima</p></div>
+        </article>
+        <article class="testimonial-slide">
+          <span class="testimonial-number">08</span>
+          <div><blockquote class="testimonial-quote">“Comecei o acompanhamento com a Jéssica quando ainda estava tentando engravidar. As tentativas frustradas me faziam sofrer demais. Alguns meses depois, o positivo veio. A gravidez não foi fácil: foram muitos dias de medo e angústia, e cada semana era uma vitória que a Jéssica comemorou comigo. Toda sessão me trazia — e ainda traz — alívio. O acompanhamento me ajudou a alinhar as expectativas e tirou muitos pesos que eu carregava. Ter uma profissional sempre disposta e atenciosa fez meu parto mais tranquilo e o pós-parto mais leve. Sempre me senti extremamente acolhida e cuidada. O cuidado com a saúde mental é tão importante quanto com a saúde física. Faz toda a diferença e vale muito a pena.”</blockquote><p class="testimonial-author">Paciente anônima</p></div>
+        </article>
+
+        <button class="testimonial-arrow testimonial-arrow--prev" type="button" aria-label="Depoimento anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"></path><path d="m11 18-6-6 6-6"></path></svg></button>
+        <button class="testimonial-arrow testimonial-arrow--next" type="button" aria-label="Próximo depoimento"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></button>
+        <div class="testimonial-progress" aria-hidden="true"><span></span></div>
+      </div>
+
+      <div class="testimonial-controls reveal">
+        <div class="testimonial-controls-center">
+          <div class="testimonial-dots" role="group" aria-label="Escolher depoimento"></div>
+          <span class="testimonial-position" aria-live="polite">Depoimento 01 de 08</span>
+          <button class="testimonial-autoplay" type="button" aria-pressed="false">
+            <svg class="autoplay-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM14 5h4v14h-4z"/></svg>
+            <svg class="autoplay-play-icon" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="m8 5 11 7-11 7z"/></svg>
+            <span class="autoplay-label">Pausar</span>
+          </button>
+        </div>
+      </div>
+      <p class="testimonial-note">Depoimentos reais apresentados de forma anônima</p>
     </div>
   </section>
 
@@ -484,20 +767,6 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
     </div>
   </section>
 
-  <!-- PILARES (CAMADA DE IDENTIDADE) -->
-  <section class="pillars">
-    <div class="wrap pad">
-      <p class="eyebrow reveal">No Instagram</p>
-      <p class="lede reveal">Os temas que acompanho — do cuidado no pré-natal ao luto perinatal.</p>
-      <div class="pillar-grid reveal">
-        <div class="pillar pillar--plum"><span class="p-script">psico</span><span class="p-title">pré-natal</span></div>
-        <div class="pillar pillar--blush"><span class="p-script">luto</span><span class="p-title">perinatal</span></div>
-        <div class="pillar pillar--coral"><span class="p-script">sobre</span><span class="p-title">mim</span></div>
-        <div class="pillar pillar--terracotta"><span class="p-title">visitas</span></div>
-        <div class="pillar pillar--peach"><span class="p-title">psico</span></div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -539,6 +808,120 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
   const header = document.querySelector('header');
   const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
   onScroll(); addEventListener('scroll', onScroll, {passive:true});
+
+  // Expansão acessível dos encontros e aulas do curso Tornar-se Mãe
+  const courseToggle = document.querySelector('.course-toggle');
+  if (courseToggle){
+    const details = document.getElementById(courseToggle.getAttribute('aria-controls'));
+    const label = courseToggle.querySelector('.toggle-label');
+    courseToggle.addEventListener('click', ()=>{
+      const expanded = courseToggle.getAttribute('aria-expanded') === 'true';
+      courseToggle.setAttribute('aria-expanded', String(!expanded));
+      details.hidden = expanded;
+      label.textContent = expanded ? 'Ver encontros e aulas bônus' : 'Ocultar encontros e aulas bônus';
+    });
+  }
+
+  // Carrossel de depoimentos: automático, navegável e pausável
+  const testimonialCarousel = document.getElementById('testimonial-carousel');
+  if (testimonialCarousel){
+    const slides = [...testimonialCarousel.querySelectorAll('.testimonial-slide')];
+    const dotsHost = document.querySelector('.testimonial-dots');
+    const position = document.querySelector('.testimonial-position');
+    const autoplayButton = document.querySelector('.testimonial-autoplay');
+    const pauseIcon = autoplayButton.querySelector('.autoplay-pause-icon');
+    const playIcon = autoplayButton.querySelector('.autoplay-play-icon');
+    const autoplayLabel = autoplayButton.querySelector('.autoplay-label');
+    let testimonialIndex = 0;
+    let testimonialTimer;
+    let testimonialPlaying = !reduce;
+    let testimonialInView = true;
+    let interactionPaused = false;
+
+    const dots = slides.map((_, index)=>{
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'testimonial-dot';
+      dot.setAttribute('aria-label', `Ir para o depoimento ${index + 1}`);
+      dot.addEventListener('click', ()=>{
+        const direction = index >= testimonialIndex ? 1 : -1;
+        testimonialIndex = index;
+        renderTestimonial(direction);
+      });
+      dotsHost.appendChild(dot);
+      return dot;
+    });
+
+    function restartTestimonialAutoplay(){
+      clearTimeout(testimonialTimer);
+      testimonialCarousel.classList.remove('is-playing');
+      void testimonialCarousel.offsetWidth;
+      const expanded = testimonialCarousel.querySelector('.testimonial-slide.is-active details[open]');
+      if (testimonialPlaying && testimonialInView && !interactionPaused && !expanded && !document.hidden){
+        testimonialCarousel.classList.add('is-playing');
+        testimonialTimer = setTimeout(()=>{
+          testimonialIndex = (testimonialIndex + 1) % slides.length;
+          renderTestimonial(1);
+        }, 8000);
+      }
+    }
+
+    function renderTestimonial(direction=1){
+      slides.forEach((slide, index)=>{
+        slide.classList.remove('is-active','from-right','from-left');
+        if (index !== testimonialIndex) slide.querySelector('details')?.removeAttribute('open');
+        if (index === testimonialIndex){
+          slide.classList.add('is-active');
+          if (!reduce) slide.classList.add(direction > 0 ? 'from-right' : 'from-left');
+        }
+      });
+      dots.forEach((dot, index)=>{
+        const active = index === testimonialIndex;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-current', active ? 'true' : 'false');
+      });
+      position.textContent = `Depoimento ${String(testimonialIndex + 1).padStart(2,'0')} de ${String(slides.length).padStart(2,'0')}`;
+      restartTestimonialAutoplay();
+    }
+
+    function updateAutoplayButton(){
+      const paused = !testimonialPlaying;
+      autoplayButton.setAttribute('aria-pressed', String(paused));
+      pauseIcon.hidden = paused;
+      playIcon.hidden = !paused;
+      autoplayLabel.textContent = paused ? 'Reproduzir' : 'Pausar';
+    }
+
+    testimonialCarousel.querySelector('.testimonial-arrow--prev').addEventListener('click', ()=>{
+      testimonialIndex = (testimonialIndex - 1 + slides.length) % slides.length;
+      renderTestimonial(-1);
+    });
+    testimonialCarousel.querySelector('.testimonial-arrow--next').addEventListener('click', ()=>{
+      testimonialIndex = (testimonialIndex + 1) % slides.length;
+      renderTestimonial(1);
+    });
+    autoplayButton.addEventListener('click', ()=>{
+      testimonialPlaying = !testimonialPlaying;
+      updateAutoplayButton();
+      restartTestimonialAutoplay();
+    });
+    testimonialCarousel.addEventListener('mouseenter', ()=>{ interactionPaused = true; restartTestimonialAutoplay(); });
+    testimonialCarousel.addEventListener('mouseleave', ()=>{ interactionPaused = false; restartTestimonialAutoplay(); });
+    testimonialCarousel.addEventListener('focusin', ()=>{ interactionPaused = true; restartTestimonialAutoplay(); });
+    testimonialCarousel.addEventListener('focusout', ()=>setTimeout(()=>{
+      if (!testimonialCarousel.contains(document.activeElement)){ interactionPaused = false; restartTestimonialAutoplay(); }
+    }, 0));
+    testimonialCarousel.querySelector('details').addEventListener('toggle', restartTestimonialAutoplay);
+    document.addEventListener('visibilitychange', restartTestimonialAutoplay);
+    if (hasIO){
+      new IntersectionObserver((entries)=>{
+        testimonialInView = entries[0].isIntersecting;
+        restartTestimonialAutoplay();
+      }, {threshold:.15}).observe(testimonialCarousel);
+    }
+    updateAutoplayButton();
+    renderTestimonial(1);
+  }
 
   if (!reduce){
     // O selo passa a "respirar" após assentar; pausa quando o hero sai da tela
