@@ -195,7 +195,8 @@ header{position:sticky; top:0; z-index:40; background:rgba(253,249,246,.88);
 
 /* ---------- atendimentos ---------- */
 .services{background:var(--cream);}
-.section-head{margin-bottom:clamp(3rem,6vw,5rem);}
+.services .wrap.pad{padding-bottom:clamp(2.5rem,4vw,3.25rem);}
+.section-head{margin-bottom:clamp(3rem,6vw,5rem); text-align:center;}
 .section-head .script{margin-bottom:.1rem;}
 .section-head .title{font-size:clamp(2.2rem,4.6vw,3.7rem); color:var(--ink); letter-spacing:-.02em;}
 .service-list{border-top:1px solid var(--border-soft);}
@@ -228,13 +229,14 @@ header{position:sticky; top:0; z-index:40; background:rgba(253,249,246,.88);
 
 /* ---------- depoimentos ---------- */
 .testimonials{background:var(--cream);}
-.testimonials-head{display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(3rem,8vw,7rem);
-  align-items:end; margin-bottom:clamp(3rem,6vw,4.5rem);}
+.testimonials:not(.mentor-testimonials) .wrap.pad{padding-top:clamp(2.5rem,4vw,3.25rem);}
+.testimonials-head{display:flex; flex-direction:column; align-items:center; gap:1.25rem;
+  margin-bottom:clamp(3rem,6vw,4.5rem); text-align:center;}
 .testimonials-head h2{margin:0;}
 .testimonials-head .script{display:block; margin-bottom:-.2rem;}
-.testimonials-head .title{display:block; max-width:11ch; font-size:clamp(2.3rem,5vw,4.2rem);
+.testimonials-head .title{display:block; max-width:17ch; font-size:clamp(2.3rem,5vw,4.2rem);
   line-height:1.02; letter-spacing:-.035em;}
-.testimonials-intro{margin:0; max-width:43ch; color:var(--ink-soft);}
+.testimonials-intro{margin:0; max-width:52ch; color:var(--ink-soft);}
 .testimonial-carousel{position:relative; overflow:hidden; border-top:1px solid var(--border-soft);
   border-bottom:1px solid var(--border-soft); padding-block:clamp(2.5rem,5vw,4.5rem);
   padding-left:clamp(3.8rem,8vw,6rem); padding-right:clamp(2.8rem,6vw,4.5rem);}
@@ -287,10 +289,15 @@ header{position:sticky; top:0; z-index:40; background:rgba(253,249,246,.88);
 .testimonial-autoplay:hover{color:var(--coral-600);}
 .testimonial-autoplay svg{width:13px; height:13px; fill:currentColor;}
 .testimonial-autoplay svg[hidden]{display:none;}
+.testimonial-autoplay .autoplay-play-icon{display:none;}
+.testimonial-autoplay[aria-pressed="true"] .autoplay-pause-icon{display:none;}
+.testimonial-autoplay[aria-pressed="true"] .autoplay-play-icon{display:block;}
 .testimonial-note{display:flex; align-items:center; gap:.55rem; margin-top:1.3rem; color:var(--ink-soft); font-size:.76rem;}
 .testimonial-note::before{content:''; width:7px; height:7px; flex:0 0 auto; border-radius:50%; background:var(--coral-500);}
+.mentor-testimonials{background:var(--blush-100);}
+.mentor-testimonials .testimonials-head .script{color:var(--terracotta-500);}
 @media (max-width:720px){
-  .testimonials-head{grid-template-columns:1fr; gap:1.5rem;}
+  .testimonials-head{gap:1.5rem;}
   .testimonials-head .title{max-width:none;}
   .testimonial-carousel{padding-left:3.8rem; padding-right:3rem;}
   .testimonial-slide,.testimonial-slide.is-active{grid-template-columns:1fr; gap:1.2rem; min-height:470px;}
@@ -304,32 +311,47 @@ header{position:sticky; top:0; z-index:40; background:rgba(253,249,246,.88);
 .threshold-grid{display:grid; grid-template-columns:.75fr 1fr; gap:clamp(2rem,5vw,4rem); align-items:center; text-align:left;}
 .threshold-photo img{width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radius-lg);
   box-shadow:0 12px 32px -8px rgba(52,10,70,.4);}
-.threshold blockquote{margin:0; max-width:20ch; font-family:var(--font-display); font-weight:500;
-  font-style:italic; font-size:clamp(1.9rem,4.6vw,3.1rem); line-height:1.24; letter-spacing:-.015em;}
-.threshold .who{margin-top:1.4rem; font-size:var(--text-xs); letter-spacing:var(--tracking-wider);
-  text-transform:uppercase; opacity:.9;}
+.threshold-copy{display:grid; gap:1.4rem;}
+.threshold-lead{max-width:24ch; font-family:var(--font-display); font-weight:500;
+  font-size:clamp(1.9rem,4.4vw,3rem); line-height:1.22; letter-spacing:-.015em; text-wrap:balance;}
+.threshold-support{max-width:43ch; color:rgba(255,255,255,.82); font-size:clamp(1rem,1.8vw,1.18rem);}
+.growth-highlight{color:#fff; font-weight:700; white-space:nowrap;}
 @media (max-width:720px){
   .threshold-grid{grid-template-columns:1fr; text-align:center;}
   .threshold-photo{width:min(72%,280px); margin-inline:auto;}
-  .threshold blockquote{margin-inline:auto;}
+  .threshold-lead,.threshold-support{margin-inline:auto;}
 }
 
 /* ---------- formação (roxo chapado — "outra sala") ---------- */
 .courses{background:var(--purple-950); color:#fff; position:relative; overflow:hidden;}
-.courses-logo{height:66px; width:auto; margin-bottom:1.8rem; opacity:.95;}
-.courses .eyebrow{color:var(--coral-400);}
+.courses-logo{height:66px; width:auto; margin:0 auto 1.8rem; opacity:.95;}
+.courses .eyebrow{color:var(--coral-400); text-align:center;}
 .courses h2{font-family:var(--font-display); font-weight:600; font-size:clamp(1.9rem,4vw,3rem); max-width:22ch;
-  line-height:1.14; letter-spacing:-.02em; text-wrap:balance;}
-.courses .lede{margin-top:.9rem; color:rgba(255,255,255,.72); max-width:52ch; font-style:italic; font-family:var(--font-display);}
-.course-list{margin-top:2.4rem; border-top:1px solid rgba(255,255,255,.18);}
-.course-row{display:grid; grid-template-columns:8rem 1fr auto; gap:1.4rem; align-items:center;
-  padding-block:1.5rem; border-bottom:1px solid rgba(255,255,255,.18);}
-.course-row .tag{font-size:var(--text-xs); letter-spacing:var(--tracking-wide); text-transform:uppercase;
-  color:var(--coral-400); font-weight:600;}
-.course-row h3{font-family:var(--font-display); font-weight:600; font-size:var(--text-xl);}
-.course-row p{color:rgba(255,255,255,.68); font-size:var(--text-sm); margin-top:.25rem; max-width:46ch;}
-.course-row .btn{justify-self:end;}
-@media (max-width:720px){ .course-row{grid-template-columns:1fr; gap:.5rem;} .course-row .btn{justify-self:start; margin-top:.5rem;} }
+  margin-inline:auto; line-height:1.14; letter-spacing:-.02em; text-align:center; text-wrap:balance;}
+.courses .lede{margin:.9rem auto 0; color:rgba(255,255,255,.72); max-width:52ch;
+  font-style:italic; font-family:var(--font-display); text-align:center;}
+.course-list{margin-top:clamp(3.5rem,7vw,5.5rem); border-top:1px solid rgba(255,255,255,.18);}
+.course-detail{display:grid; grid-template-columns:minmax(220px,.72fr) minmax(0,1.28fr);
+  gap:clamp(2rem,7vw,6rem); padding-block:clamp(3rem,7vw,5.4rem); border-bottom:1px solid rgba(255,255,255,.18);}
+.course-detail-heading{display:grid; grid-template-columns:2.2rem 1fr; gap:.9rem; align-items:start;}
+.course-number{padding-top:.45rem; color:var(--coral-400); font-size:var(--text-xs); font-weight:700;
+  letter-spacing:var(--tracking-wide);}
+.course-detail h3{max-width:12ch; font-family:var(--font-display); font-weight:600;
+  font-size:clamp(1.8rem,3.4vw,2.75rem); line-height:1.12; letter-spacing:-.02em; text-wrap:balance;}
+.course-detail-copy{max-width:69ch; color:rgba(255,255,255,.76); font-size:clamp(.98rem,1.35vw,1.08rem);}
+.course-detail-copy p+p{margin-top:1.15rem;}
+.mentoring-note{max-width:900px; margin:clamp(5rem,10vw,8rem) auto 0; text-align:center;}
+.mentoring-note h3{margin-inline:auto; max-width:18ch; font-family:var(--font-display); font-weight:600;
+  font-size:clamp(2.1rem,4.5vw,3.5rem); line-height:1.08; letter-spacing:-.025em; text-wrap:balance;}
+.mentoring-note-copy{display:grid; gap:1.05rem; max-width:70ch; margin:2rem auto 0; color:rgba(255,255,255,.76); text-align:left;}
+.mentoring-note-copy .note-opening{color:#fff; font-family:var(--font-display); font-size:clamp(1.25rem,2vw,1.55rem); font-style:italic;}
+.mentoring-cta{display:flex; justify-content:center; margin-top:2.3rem;}
+@media (max-width:720px){
+  .course-detail{grid-template-columns:1fr; gap:1.35rem;}
+  .course-detail-heading{grid-template-columns:1.8rem 1fr; gap:.65rem;}
+  .course-detail h3{max-width:none;}
+  .mentoring-note{margin-top:4.5rem;}
+}
 
 /* ---------- rodapé ---------- */
 footer{background:var(--purple-950); color:rgba(255,255,255,.82);}
@@ -370,8 +392,6 @@ footer{background:var(--purple-950); color:rgba(255,255,255,.82);}
 .js .reveal.in{opacity:1; transform:none;}
 /* stagger só onde é lista de verdade */
 .cards .card:nth-child(2){transition-delay:.08s;}
-.course-row:nth-child(2){transition-delay:.06s;}
-.course-row:nth-child(3){transition-delay:.12s;}
 
 /* Feedback / micro-interações */
 header{transition:box-shadow .25s ease;}
@@ -381,8 +401,8 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
   background:var(--coral-500); transform:scaleX(0); transform-origin:left;
   transition:transform .22s cubic-bezier(.16,1,.3,1);}
 .nav-links a:not(.btn):hover::after{transform:scaleX(1);}
-.course-row h3{transition:color .18s ease;}
-.course-row:hover h3{color:var(--coral-400);}
+.course-detail h3{transition:color .18s ease;}
+.course-detail:hover h3{color:var(--coral-400);}
 
 /* Delight: ao estender a mão (hover no "Agendar consulta"), a borboleta
    dá uma batida de asa lenta e delicada — a marca viva reconhece o gesto.
@@ -437,7 +457,7 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
       <a class="nav-item" href="#servicos">para mães</a>
       <a class="nav-item" href="#formacao">para psicólogas</a>
       <!-- TODO: número real de WhatsApp -->
-      <a class="btn btn-primary btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Cheguei%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener">Agendar consulta</a>
+      <a class="btn btn-primary btn-sm" href="https://wa.me/554631992053?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Cheguei%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener">Agendar consulta</a>
     </nav>
   </div>
 </header>
@@ -454,7 +474,7 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
           <p class="lede">A sua história, seus sonhos e desafios diários. Um espaço totalmente seu, livre de qualquer julgamento. Onde você pode sentir, falar e ser ouvida inteiramente.</p>
           <div class="ctas">
             <!-- TODO: número real de WhatsApp -->
-            <a class="btn btn-primary" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Cheguei%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20um%20acompanhamento." target="_blank" rel="noopener">Agendar consulta</a>
+            <a class="btn btn-primary" href="https://wa.me/554631992053?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Cheguei%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20um%20acompanhamento." target="_blank" rel="noopener">Agendar consulta</a>
             <a class="btn btn-outline" href="#formacao">Sou psicóloga</a>
           </div>
         </div>
@@ -535,7 +555,7 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
             </div>
             <div class="service-actions">
               <!-- TODO: número real de WhatsApp -->
-              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Gostaria%20de%20saber%20como%20funciona%20o%20primeiro%20atendimento." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
+              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/554631992053?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Gostaria%20de%20saber%20como%20funciona%20o%20primeiro%20atendimento." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
             </div>
           </div>
         </article>
@@ -549,7 +569,7 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
             <div class="service-copy"><p>Um espaço para falar abertamente, ser ouvida e acolhida sem julgamentos.</p></div>
             <div class="service-actions">
               <!-- TODO: número real de WhatsApp -->
-              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Gostaria%20de%20saber%20sobre%20a%20psicoterapia%20para%20mulheres." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
+              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/554631992053?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Gostaria%20de%20saber%20sobre%20a%20psicoterapia%20para%20mulheres." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
             </div>
           </div>
         </article>
@@ -566,7 +586,7 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
             </div>
             <div class="service-actions">
               <!-- TODO: número real de WhatsApp -->
-              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Estou%20gr%C3%A1vida%20e%20gostaria%20de%20saber%20sobre%20o%20pr%C3%A9-natal%20psicol%C3%B3gico." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
+              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/554631992053?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Estou%20gr%C3%A1vida%20e%20gostaria%20de%20saber%20sobre%20o%20pr%C3%A9-natal%20psicol%C3%B3gico." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
             </div>
           </div>
         </article>
@@ -583,7 +603,7 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
             </div>
             <div class="service-actions">
               <!-- TODO: número real de WhatsApp -->
-              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Sou%20m%C3%A3e%20e%20gostaria%20de%20um%20acompanhamento%20no%20p%C3%B3s-parto." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
+              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/554631992053?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Sou%20m%C3%A3e%20e%20gostaria%20de%20um%20acompanhamento%20no%20p%C3%B3s-parto." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
             </div>
           </div>
         </article>
@@ -601,7 +621,7 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
             </div>
             <div class="service-actions">
               <!-- TODO: número real de WhatsApp -->
-              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20curso%20Tornar-se%20M%C3%A3e." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Quero conhecer o curso</a>
+              <a class="btn btn-whatsapp btn-sm" href="https://wa.me/554631992053?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20curso%20Tornar-se%20M%C3%A3e." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Quero conhecer o curso</a>
               <button class="btn btn-outline btn-sm course-toggle" type="button" aria-expanded="false" aria-controls="course-details"><span class="toggle-label">Ver encontros e aulas bônus</span><svg class="ico chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
             </div>
             <div class="course-details" id="course-details" hidden>
@@ -636,7 +656,7 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
   </section>
 
   <!-- DEPOIMENTOS -->
-  <section class="testimonials" id="depoimentos" aria-labelledby="depoimentos-title">
+  <section class="testimonials" id="depoimentos" aria-labelledby="depoimentos-title" data-testimonial-section>
     <div class="wrap pad">
       <div class="testimonials-head reveal">
         <h2 id="depoimentos-title"><span class="script">elas contam</span><span class="title">como foi se sentir acolhida</span></h2>
@@ -720,9 +740,9 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
         <div class="threshold-photo reveal">
           <img src="assets/photos/threshold.jpg" alt="Jéssica Griebler" width="900" height="1125">
         </div>
-        <div class="reveal">
-          <blockquote>Chega de achar que não dá pra viver bem da psicologia — dá sim, e eu te mostro o caminho.</blockquote>
-          <p class="who">Para psicólogas e estudantes</p>
+        <div class="threshold-copy reveal">
+          <p class="threshold-lead">Para psicólogas que desejam viver bem, ser reconhecidas, bem pagas, ter liberdade na rotina e uma boa qualidade de vida com essa profissão.</p>
+          <p class="threshold-support">Vou te mostrar o caminho que eu fiz para <span class="growth-highlight">CRESCER 10X</span> a minha renda e conquistar autonomia profissional.</p>
         </div>
       </div>
     </div>
@@ -736,34 +756,238 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
       <h2>Para psicólogas e estudantes que querem atuar com segurança na psicologia perinatal.</h2>
       <p class="lede">Do primeiro atendimento à autonomia profissional — o caminho que eu trilhei, agora com você.</p>
       <div class="course-list">
-        <div class="course-row reveal">
-          <span class="tag">Capacitação</span>
-          <div>
-            <h3>Do Pré-natal ao Puerpério</h3>
-            <p>Formação completa para atuar com segurança no acompanhamento psicológico do pré-natal ao puerpério.</p>
+        <article class="course-detail reveal">
+          <div class="course-detail-heading">
+            <span class="course-number">01</span>
+            <h3>Mentoria em Pré-Natal Psicológico</h3>
           </div>
-          <!-- TODO: link real de checkout -->
-          <a class="btn btn-ghost-light btn-sm" href="#" rel="noopener">Saiba mais</a>
-        </div>
-        <div class="course-row reveal">
-          <span class="tag">Mentoria</span>
-          <div>
-            <h3>Mentoria em Pré-natal Psicológico</h3>
-            <p>Mentoria para psicólogas que querem se especializar e atuar com autonomia no pré-natal psicológico.</p>
+          <div class="course-detail-copy">
+            <p>Transforme seu conhecimento em um acompanhamento de Pré-Natal Psicológico seguro, estruturado e possível de colocar em prática.</p>
+            <p>Ao longo dos encontros, você aprende a estruturar o acompanhamento, compreender as principais demandas emocionais da gestação, organizar os atendimentos e conduzir cada etapa com mais segurança e clareza.</p>
+            <p>Também trabalhamos como apresentar o serviço, comunicar seu valor e construir uma oferta ética e estratégica. Da teoria à prática, para você tirar o Pré-Natal Psicológico do papel e se sentir preparada para acompanhar gestantes.</p>
           </div>
-          <!-- TODO: link real de checkout -->
-          <a class="btn btn-ghost-light btn-sm" href="#" rel="noopener">Saiba mais</a>
-        </div>
-        <div class="course-row reveal">
-          <span class="tag">Mentoria</span>
-          <div>
+        </article>
+
+        <article class="course-detail reveal">
+          <div class="course-detail-heading">
+            <span class="course-number">02</span>
             <h3>Mentoria Lumina</h3>
-            <p>Mentoria para psicólogas conquistarem autonomia e liberdade financeira com a psicologia.</p>
           </div>
-          <!-- TODO: link real de checkout -->
-          <a class="btn btn-ghost-light btn-sm" href="#" rel="noopener">Saiba mais</a>
+          <div class="course-detail-copy">
+            <p>A psicologia pode ser exatamente aquilo que você sonhou — sem precisar se perder no caminho para fazê-la acontecer.</p>
+            <p>A Lumina ajuda você a construir um posicionamento claro, fortalecer sua presença digital e comunicar o valor do seu trabalho de forma estratégica e autêntica.</p>
+            <p>Você aprende a transformar conhecimento em conteúdo, atrair as pessoas certas e estruturar estratégias de marketing e vendas alinhadas aos seus objetivos, com um plano de ação possível para crescer com autonomia e segurança.</p>
+            <p>Clareza para se posicionar. Estratégia para crescer. Autonomia para construir o seu caminho.</p>
+          </div>
+        </article>
+
+        <article class="course-detail reveal">
+          <div class="course-detail-heading">
+            <span class="course-number">03</span>
+            <h3>Mastermind Lumina</h3>
+          </div>
+          <div class="course-detail-copy">
+            <p>Estratégia, troca e direcionamento para quem já começou e quer ir além.</p>
+            <p>O Mastermind Lumina é um acompanhamento estratégico de 6 meses, criado para psicólogas que já estão em movimento e querem avançar para um novo nível na carreira e no negócio.</p>
+            <p>Em um encontro individual por mês, olhamos para seus objetivos e desafios e definimos estratégias para conteúdo, comunicação, vendas e captação de pacientes, de acordo com a prioridade do seu negócio.</p>
+            <p>Os encontros em grupo complementam esse processo com aprofundamento e troca entre psicólogas. Um espaço para tomar decisões com mais clareza, fortalecer seu posicionamento e construir um crescimento consistente e sustentável.</p>
+          </div>
+        </article>
+
+        <article class="course-detail reveal">
+          <div class="course-detail-heading">
+            <span class="course-number">04</span>
+            <h3>Supervisão</h3>
+          </div>
+          <div class="course-detail-copy">
+            <p>Um espaço para pensar a clínica com mais segurança, profundidade e acolhimento.</p>
+            <p>A partir dos casos trazidos por você, exploramos raciocínio clínico, hipóteses, manejo, intervenções e possíveis caminhos, além das dúvidas e inseguranças que fazem parte da prática.</p>
+            <p>Com uma escuta cuidadosa e sem julgamentos, a supervisão amplia seu olhar, fortalece sua autonomia e ajuda você a construir uma clínica mais segura, ética e coerente com a profissional que deseja ser.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="mentoring-note reveal">
+        <h3>Por que você deveria ser minha mentorada?</h3>
+        <div class="mentoring-note-copy">
+          <p class="note-opening">Eu não acredito em uma mentoria em que você apenas assiste às aulas e tenta descobrir sozinha como colocar tudo em prática.</p>
+          <p>Quero que você tenha acesso a mim para perguntar, dividir desafios e construir soluções com o olhar de alguém experiente. Uma boa mentoria não entrega apenas conhecimento: ela oferece direcionamento, suporte e segurança para transformar conhecimento em ação.</p>
+          <p>Meu objetivo é ajudar você a crescer, reconhecer seu valor, cobrar de forma justa e tomar decisões com mais confiança. Não para depender de mim, mas para construir autonomia e alcançar os resultados que deseja — do seu jeito e no seu ritmo.</p>
+        </div>
+        <div class="mentoring-cta">
+          <a class="btn btn-whatsapp" href="https://wa.me/554631992053?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Gostaria%20de%20saber%20mais%20sobre%20suas%20mentorias%20e%20a%20supervis%C3%A3o." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Quero conhecer as mentorias</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS DE MENTORADAS -->
+  <section class="testimonials mentor-testimonials" id="depoimentos-mentoria" aria-labelledby="depoimentos-mentoria-title" data-testimonial-section>
+    <div class="wrap pad">
+      <div class="testimonials-head reveal">
+        <h2 id="depoimentos-mentoria-title"><span class="script">elas contam</span><span class="title">o que mudou depois da mentoria</span></h2>
+        <p class="testimonials-intro">Resultados reais de psicólogas que encontraram direção, confiança e novas possibilidades para crescer profissionalmente.</p>
+      </div>
+
+      <div class="testimonial-carousel reveal" id="mentor-testimonial-carousel">
+        <article class="testimonial-slide is-active">
+          <span class="testimonial-number">01</span>
+          <div>
+            <blockquote class="testimonial-quote">“Você sempre acreditou em mim, me incentivou quando eu mesma duvidei e me mostrou que era possível ir além. Hoje, o sonho de atender em um espaço realmente meu está saindo do papel.”</blockquote>
+            <details>
+              <summary>Ler depoimento completo</summary>
+              <div class="testimonial-full">
+                <p>Jé, quando iniciei o Mastermind, eu tinha dois grandes objetivos: crescer no Instagram, aprender a usar essa ferramenta para divulgar o meu trabalho e conquistar mais pacientes, mas também realizar um sonho muito especial: atender em um espaço que fosse realmente meu.</p>
+                <p>Hoje, esse sonho está saindo do papel, e eu não poderia deixar de te agradecer. Sou muito grata por tudo o que construímos juntas nesse tempo. Você sempre acreditou em mim, me incentivou nos momentos em que eu mesma duvidei e me mostrou que era possível ir além.</p>
+                <p>Sem o teu incentivo, o teu conhecimento e a tua parceria, muitas dessas conquistas talvez nem tivessem acontecido. Obrigada, de coração, por fazer parte dessa fase tão importante da minha vida e da minha trajetória profissional. Você tem uma parcela muito especial em tudo isso.</p>
+              </div>
+            </details>
+            <p class="testimonial-author">Mentorada anônima</p>
+          </div>
+        </article>
+
+        <article class="testimonial-slide">
+          <span class="testimonial-number">02</span>
+          <div><blockquote class="testimonial-quote">“Recebi uma paciente por indicação de uma enfermeira obstétrica da cidade. Ela aceitou o valor sem questionar e já fez o Pix.”</blockquote><p class="testimonial-author">Mentorada anônima</p></div>
+        </article>
+
+        <article class="testimonial-slide">
+          <span class="testimonial-number">03</span>
+          <div><blockquote class="testimonial-quote">“Comecei a mentoria faturando menos de R$ 5 mil. Com todo o trabalho que desenvolvemos juntas, em abril cheguei a R$ 8 mil. Agora estou superempolgada para alcançar o objetivo de 10 mil!”</blockquote><p class="testimonial-author">Mentorada anônima</p></div>
+        </article>
+
+        <article class="testimonial-slide">
+          <span class="testimonial-number">04</span>
+          <div>
+            <blockquote class="testimonial-quote">“Ter um canal aberto para dúvidas e reflexões ajudou muito na construção dos conteúdos e a entender que caminho eu quero — ou não — seguir na minha carreira.”</blockquote>
+            <details>
+              <summary>Ler depoimento completo</summary>
+              <div class="testimonial-full">
+                <p>Oii, Jéssica! Passando aqui só para reforçar e completar o que já te falei sobre a mentoria e seu acompanhamento. Gratidão por todo suporte, incentivo e ensinamentos.</p>
+                <p>Além de ter um espaço de aprendizado, o que fez muita diferença para mim foi ter a oportunidade de trocar com uma profissional da área sobre dores que vivencio e que você já passou também ao longo da sua carreira, e sentir que estou no caminho.</p>
+                <p>Poder ter um canal aberto para dúvidas e reflexões ajudou muito na construção dos conteúdos e a entender que caminho eu quero — ou não — seguir na minha carreira. Desejo muito sucesso para você e que outras psis tenham a sorte de te encontrar também.</p>
+              </div>
+            </details>
+            <p class="testimonial-author">Mentorada anônima</p>
+          </div>
+        </article>
+
+        <article class="testimonial-slide">
+          <span class="testimonial-number">05</span>
+          <div><blockquote class="testimonial-quote">“Ter o seu suporte no WhatsApp faz toda a diferença. Posso contar com suas orientações, desde ideias até ajustes de legenda e posicionamento. Isso me traz mais segurança, clareza e agilidade, além de elevar a qualidade do que entrego.”</blockquote><p class="testimonial-author">Mentorada anônima</p></div>
+        </article>
+
+        <article class="testimonial-slide">
+          <span class="testimonial-number">06</span>
+          <div>
+            <blockquote class="testimonial-quote">“Em março, fechei quatro pacientes novas: três vieram pelo Google Ads e uma pelo Instagram. Todo o trabalho que fizemos juntas está dando muito certo!”</blockquote>
+            <details>
+              <summary>Ler depoimento completo</summary>
+              <div class="testimonial-full">
+                <p>Jé, você não acredita! No mês de março, fechei quatro pacientes novas. Estou muito feliz com esse resultado.</p>
+                <p>Três delas vieram pelo Google Ads e uma veio pelo Instagram. Fechei a minha primeira paciente pelo Instagram! Estou feliz pelo resultado; todo o trabalho que fizemos juntas está dando muito certo.</p>
+                <p>Que abril traga mais bons resultados. Obrigada por tudo!</p>
+              </div>
+            </details>
+            <p class="testimonial-author">Mentorada anônima</p>
+          </div>
+        </article>
+
+        <article class="testimonial-slide">
+          <span class="testimonial-number">07</span>
+          <div>
+            <blockquote class="testimonial-quote">“Consegui viralizar um conteúdo no Instagram e dois no TikTok, ganhei mais de 300 seguidores e estou estruturando meu grupo de pré-natal.”</blockquote>
+            <details>
+              <summary>Ler depoimento completo</summary>
+              <div class="testimonial-full">
+                <p>Jé, passando aqui para agradecer todo o seu suporte durante a nossa mentoria. Com o seu direcionamento, consegui viralizar um conteúdo no Instagram e dois no TikTok, ganhei mais de 300 seguidores somando as duas redes.</p>
+                <p>Estou estruturando o meu grupo de pré-natal e muito empolgada com todos os resultados até aqui. Ter o acompanhamento de perto de alguém que já teve resultados me passa muita confiança, e por isso escolhi você para me acompanhar nessa jornada de sucesso. Gratidão por tudo!</p>
+              </div>
+            </details>
+            <p class="testimonial-author">Mentorada anônima</p>
+          </div>
+        </article>
+
+        <article class="testimonial-slide">
+          <span class="testimonial-number">08</span>
+          <div>
+            <blockquote class="testimonial-quote">“Existe um antes e depois da sua ajuda na minha vida. Aprendi do zero como a criação de conteúdo funciona e ganhei clareza, confiança e acompanhamento em todo o processo.”</blockquote>
+            <details>
+              <summary>Ler depoimento completo</summary>
+              <div class="testimonial-full">
+                <p>Jé, passando aqui para te agradecer de coração e deixar meu feedback sobre a Mentoria Lumina. Sem dúvida nenhuma, existe um antes e depois da sua ajuda na minha vida. Com você, meus horizontes se abriram de um jeito que eu nunca tinha imaginado.</p>
+                <p>Consegui entender do zero como a criação de conteúdo realmente funciona, ganhar clareza, confiança e, principalmente, me sentir acompanhada em todo o processo.</p>
+                <p>Obrigada por entregar tanto, com tanta generosidade e presença ao longo desse tempo. Hoje, colho frutos incríveis por ter tido coragem de dar o primeiro passo, acreditar e fazer esse investimento. Muito obrigada mesmo, por tudo.</p>
+              </div>
+            </details>
+            <p class="testimonial-author">Mentorada anônima</p>
+          </div>
+        </article>
+
+        <article class="testimonial-slide">
+          <span class="testimonial-number">09</span>
+          <div><blockquote class="testimonial-quote">“Alcancei meu primeiro mil! Quando iniciamos a mentoria, eu tinha aproximadamente 250 seguidores. Fecho o ano com essa meta alcançada de forma orgânica, de passinho em passinho. Você faz parte dessa conquista.”</blockquote><p class="testimonial-author">Mentorada anônima</p></div>
+        </article>
+
+        <article class="testimonial-slide">
+          <span class="testimonial-number">10</span>
+          <div>
+            <blockquote class="testimonial-quote">“Mais importante do que crescer o número de seguidores foi aprender a me comunicar de forma segura, respeitando meu processo e olhando para o meu trabalho de maneira estratégica.”</blockquote>
+            <details>
+              <summary>Ler depoimento completo</summary>
+              <div class="testimonial-full">
+                <p>A Mentoria Lumina é incrível. Quando comecei, estava um pouco travada e cheia de dúvidas sobre como iniciar no digital. Durante todos os encontros, a Jéssica pegou na minha mão e trouxe vários insights e conhecimentos sobre como produzir conteúdo de forma ética e sustentável para as redes sociais.</p>
+                <p>O fato de ser em grupo só ajuda, pois a troca com a Jéssica e as outras alunas enriqueceu ainda mais a minha experiência.</p>
+                <p>Durante a mentoria, consegui crescer o número de seguidores da minha conta. Porém, o mais importante foi aprender a me comunicar de forma segura, respeitando meu processo e olhando para o meu trabalho de maneira mais estratégica.</p>
+              </div>
+            </details>
+            <p class="testimonial-author">Mentorada anônima</p>
+          </div>
+        </article>
+
+        <article class="testimonial-slide">
+          <span class="testimonial-number">11</span>
+          <div>
+            <blockquote class="testimonial-quote">“Após apenas quatro meses de atuação, já acompanho oito pacientes e colho ótimos resultados no Instagram. A maioria delas chegou até mim de forma orgânica.”</blockquote>
+            <details>
+              <summary>Ler depoimento completo</summary>
+              <div class="testimonial-full">
+                <p>Oii, Jé! Hoje quero deixar um agradecimento especial para você. No final do ano passado, comecei a buscar uma especialização em psicologia perinatal e foi então que te conheci por meio de um anúncio de uma aula magna.</p>
+                <p>Fiz a capacitação, participei da Mentoria de Pré-Natal Psicológico e agora sigo como sua mentorada no curso voltado para as redes sociais.</p>
+                <p>Hoje, após apenas quatro meses de atuação, já estou acompanhando oito pacientes e colhendo ótimos resultados também no Instagram, sendo que a maioria delas chegou até mim de forma orgânica. Sou muito grata por tudo que você compartilha, por somar tanto ao meu propósito e pela sua disponibilidade de sempre. Você é referência. Obrigada de coração!</p>
+              </div>
+            </details>
+            <p class="testimonial-author">Mentorada anônima</p>
+          </div>
+        </article>
+
+        <article class="testimonial-slide">
+          <span class="testimonial-number">12</span>
+          <div><blockquote class="testimonial-quote">“A capacitação está sendo um momento de muito aprendizado e troca. Suas aulas são dinâmicas, leves e de fácil compreensão, e você sempre abre espaço para compartilharmos nossas experiências.”</blockquote><p class="testimonial-author">Mentorada anônima</p></div>
+        </article>
+
+        <article class="testimonial-slide">
+          <span class="testimonial-number">13</span>
+          <div><blockquote class="testimonial-quote">“Com a capacitação e a Mentoria de Pré-Natal Psicológico, consegui base para iniciar na perinatalidade. Antes mesmo de finalizarmos, já fechei parcerias incríveis com empresas e clínicas para atuar em grupos de gestantes.”</blockquote><p class="testimonial-author">Mentorada anônima</p></div>
+        </article>
+
+        <button class="testimonial-arrow testimonial-arrow--prev" type="button" aria-label="Depoimento anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"></path><path d="m11 18-6-6 6-6"></path></svg></button>
+        <button class="testimonial-arrow testimonial-arrow--next" type="button" aria-label="Próximo depoimento"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></button>
+        <div class="testimonial-progress" aria-hidden="true"><span></span></div>
+      </div>
+
+      <div class="testimonial-controls reveal">
+        <div class="testimonial-controls-center">
+          <div class="testimonial-dots" role="group" aria-label="Escolher depoimento de mentorada"></div>
+          <span class="testimonial-position" aria-live="polite">Depoimento 01 de 13</span>
+          <button class="testimonial-autoplay" type="button" aria-pressed="false">
+            <svg class="autoplay-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM14 5h4v14h-4z"/></svg>
+            <svg class="autoplay-play-icon" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="m8 5 11 7-11 7z"/></svg>
+            <span class="autoplay-label">Pausar</span>
+          </button>
+        </div>
+      </div>
+      <p class="testimonial-note">Depoimentos reais apresentados de forma anônima</p>
     </div>
   </section>
 
@@ -777,7 +1001,7 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
       </a>
       <!-- TODO: número real de WhatsApp -->
-      <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Cheguei%20pelo%20seu%20site." target="_blank" rel="noopener" aria-label="WhatsApp">
+      <a href="https://wa.me/554631992053?text=Ol%C3%A1%2C%20J%C3%A9ssica%21%20Cheguei%20pelo%20seu%20site." target="_blank" rel="noopener" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       </a>
     </div>
@@ -822,13 +1046,13 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
     });
   }
 
-  // Carrossel de depoimentos: automático, navegável e pausável
-  const testimonialCarousel = document.getElementById('testimonial-carousel');
-  if (testimonialCarousel){
+  // Carrosséis de depoimentos: automáticos, navegáveis e pausáveis
+  document.querySelectorAll('[data-testimonial-section]').forEach((testimonialSection)=>{
+    const testimonialCarousel = testimonialSection.querySelector('.testimonial-carousel');
     const slides = [...testimonialCarousel.querySelectorAll('.testimonial-slide')];
-    const dotsHost = document.querySelector('.testimonial-dots');
-    const position = document.querySelector('.testimonial-position');
-    const autoplayButton = document.querySelector('.testimonial-autoplay');
+    const dotsHost = testimonialSection.querySelector('.testimonial-dots');
+    const position = testimonialSection.querySelector('.testimonial-position');
+    const autoplayButton = testimonialSection.querySelector('.testimonial-autoplay');
     const pauseIcon = autoplayButton.querySelector('.autoplay-pause-icon');
     const playIcon = autoplayButton.querySelector('.autoplay-play-icon');
     const autoplayLabel = autoplayButton.querySelector('.autoplay-label');
@@ -911,7 +1135,7 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
     testimonialCarousel.addEventListener('focusout', ()=>setTimeout(()=>{
       if (!testimonialCarousel.contains(document.activeElement)){ interactionPaused = false; restartTestimonialAutoplay(); }
     }, 0));
-    testimonialCarousel.querySelector('details').addEventListener('toggle', restartTestimonialAutoplay);
+    testimonialCarousel.querySelectorAll('details').forEach((details)=>details.addEventListener('toggle', restartTestimonialAutoplay));
     document.addEventListener('visibilitychange', restartTestimonialAutoplay);
     if (hasIO){
       new IntersectionObserver((entries)=>{
@@ -921,7 +1145,7 @@ header.scrolled{box-shadow:0 10px 26px -18px rgba(52,10,70,.55);}
     }
     updateAutoplayButton();
     renderTestimonial(1);
-  }
+  });
 
   if (!reduce){
     // O selo passa a "respirar" após assentar; pausa quando o hero sai da tela
